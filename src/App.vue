@@ -1,30 +1,39 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="v-app">
+
+    <div
+        class="v-app__nav"
+    >
+      <navigation-app/>
+    </div>
+
+    <router-view/>
+
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import { defineComponent } from 'vue';
+import NavigationApp from "@/components/NavigationApp.vue"
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    NavigationApp
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.v-app {
+  padding-top: var(--navigation-height);
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.v-app__nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: var(--color--light);
+  z-index: 1000000;
 }
 </style>

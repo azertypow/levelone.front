@@ -1,0 +1,25 @@
+@import "./params";
+@import "./grid";
+
+html {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+   font-size: var(--unit);
+}
+
+body {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
