@@ -15,6 +15,7 @@ import SectionMain from "@/components/SectionMain.vue"
 import SectionBio from "@/components/SectionBio.vue"
 import SectionSpecification from "@/components/SectionSpecification.vue"
 import SectionTalents from "@/components/SectionTalents.vue"
+import {apiGet} from "@/global/api"
 
 export default defineComponent({
   name: 'Home',
@@ -24,6 +25,11 @@ export default defineComponent({
     SectionBio,
     SectionMain
   },
+
+  async beforeMount() {
+    console.log( await apiGet('home') )
+  }
+
 });
 </script>
 

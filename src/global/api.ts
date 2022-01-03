@@ -1,20 +1,24 @@
+import {API_URL} from "@/global/variables"
+
 export type apiLocation = "home" | "certification"
 
-export function apigGet(location: apiLocation): string | null {
+export async function apiGet(location: apiLocation): Promise<string | null> {
   switch (location) {
-    case "certification":
-      apiFetch()
-      break
+    case "home":
+      return await apiFetch('')
   }
 
   return null
 }
 
-export function apiFetch() {
-  fetch(
-    "",
+export async function apiFetch(query: string) {
+
+  const response = await fetch(
+    API_URL + query,
     {
-      method: "GET"
+      method: "GET",
     }
   )
+
+  return await response.json()
 }
