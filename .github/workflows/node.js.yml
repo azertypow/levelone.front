@@ -9,6 +9,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: npm install, build
+        with:
+          node-version: '12.x'
         run: |
           npm ci
           npm run build --if-present
