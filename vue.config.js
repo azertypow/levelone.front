@@ -5,5 +5,5 @@
  * @type {import('@vue/cli-service').ProjectOptions}
  */
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'development' ? "" : "http://localhost:8080/"
+    publicPath: process.env.NODE_ENV === 'development' ? "" : "https://commergnat.com/"
 }
