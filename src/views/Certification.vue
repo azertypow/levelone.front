@@ -11,6 +11,12 @@ export default defineComponent({
   name: 'Certification',
   components: {
   },
+
+  beforeMount() {
+    this.$nextTick(() => {
+      console.log("certification page")
+    })
+  }
 });
 </script>
 
