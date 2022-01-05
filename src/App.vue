@@ -2,6 +2,7 @@
   <div class="v-app">
 
     <div
+        v-if="!isLogView"
         class="v-app__nav"
     >
       <navigation-app/>
@@ -18,9 +19,17 @@ import NavigationApp from "@/components/NavigationApp.vue"
 
 export default defineComponent({
   name: 'App',
+
   components: {
     NavigationApp
   },
+
+  computed: {
+    isLogView(): boolean {
+      return this.$route.name === 'Log'
+    }
+  }
+
 });
 </script>
 
