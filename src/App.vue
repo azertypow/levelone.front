@@ -2,6 +2,7 @@
   <div class="v-app">
 
     <div
+        style="display: none"
         v-if="!isLogView"
         class="v-app__nav"
     >
