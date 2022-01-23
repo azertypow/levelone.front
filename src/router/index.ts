@@ -16,11 +16,11 @@ const routes: Array<RouteRecordRaw> = [
   //   name: 'PreOrder',
   //   component: () => import('../views/PreOrder.vue'),
   // },
-  // {
-  //   path: '/certification',
-  //   name: 'Certification',
-  //   component: () => import('../views/Certification.vue'),
-  // }
+  {
+    path: '/certification',
+    name: 'Certification',
+    component: () => import('../views/Certification.vue'),
+  }
 ]
 
 const router = createRouter({
