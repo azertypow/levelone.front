@@ -1,5 +1,7 @@
+@import "./font-loader";
 @import "./params";
 @import "./grid";
+@import "./typography";
 
 html {
   position: relative;
@@ -7,7 +9,9 @@ html {
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
-   font-size: var(--unit);
+  font-size: var(--unit);
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {

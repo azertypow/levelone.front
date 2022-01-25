@@ -1,0 +1,29 @@
+h1 {
+  font-size:    calc( var(--font-size)    * 4 );
+  line-height:  calc( var(--line-height)  * 4 );
+  margin-top:     calc( var(--line-height)  * 2 );
+  margin-bottom:  calc( var(--line-height)  * 2 );
+  font-family: MB_Picture_House_One_Light, sans-serif;
+}
+
+h2 {
+  font-size:    calc( var(--font-size)    * 2 );
+  line-height:  calc( var(--line-height)  * 2 );
+  margin-top:     calc( var(--line-height)  * 2 );
+  margin-bottom:  calc( var(--line-height)  * 2 );
+}
+
+p, ul, ol {
+  font-size:    calc( var(--font-size)    * 1.5 );
+  line-height:  calc( var(--line-height)  * 1.5 );
+}
+
+.lo-font-is-small {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+
+  p, ul, ol {
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+  }
+}
