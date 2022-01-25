@@ -27,7 +27,7 @@ export default defineComponent({
   },
 
   async beforeMount() {
-    console.log( await apiGet('home') )
+    // console.log( await apiGet('home') )
   }
 
 });

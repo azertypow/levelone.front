@@ -2,7 +2,6 @@
   <div class="v-app">
 
     <div
-        style="display: none"
         v-if="!isLogView"
         class="v-app__nav"
     >
@@ -11,17 +10,20 @@
 
     <router-view/>
 
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import NavigationApp from "@/components/NavigationApp.vue"
+import AppFooter from "@/components/AppFooter.vue";
 
 export default defineComponent({
   name: 'App',
 
   components: {
+    AppFooter,
     NavigationApp
   },
 

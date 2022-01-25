@@ -1,11 +1,12 @@
 <template>
   <section class="v-subsection"
            :class="{
-              'is-l': styleOption === 'large'
+              'is-l': styleOption === 'large',
+              'is-centred': styleType === 'centred',
            }"
   >
     <div v-if="styleType === 'centred'"
-         class="v-subsection__content v-subsection__content--centred"
+         class="v-subsection__content v-subsection__content--centred lo-remove-child-margin"
     >
       <h1
           class="v-subsection__content__title"
@@ -18,7 +19,7 @@
     </div>
 
     <div v-if="styleType === 'half'"
-         class="v-subsection__content v-subsection__content--half"
+         class="v-subsection__content v-subsection__content--half lo-remove-child-margin"
     >
       <div class="v-subsection__content--half__left">
         <div class="v-subsection__content--half__left__cover"></div>
@@ -67,9 +68,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .v-subsection {
   margin: auto;
-  max-width: var(--max-width);
-  padding-top: var(--gutter);
-  padding-bottom: calc( var(--gutter) *4 );
+  max-width:      var(--max-width);
+  padding-top:    var(--section-padding-top_bottom);
+  padding-bottom: var(--section-padding-top_bottom);
 }
 
 .v-subsection__content {
@@ -89,24 +90,26 @@ export default defineComponent({
   }
 }
 
+.v-subsection__content__slot {
+  text-align: center;
+}
+
 .v-subsection__content__title {
-  font-size:    calc( var(--font-size)    * 4 );
-  line-height:  calc( var(--line-height)  * 4 );
   text-align: center;
 }
 
 .v-subsection.is-l {
   max-width: var(--max-width--lg);
 
-  .v-subsection__content__slot {
-    font-size:    calc( var(--font-size)    * 1.5 );
-    line-height:  calc( var(--line-height)  * 1.5 );
-    text-align: center;
-  }
-
   li {
     text-decoration: none;
     display: block !important;
+  }
+}
+
+.v-subsection.is-centred {
+  .v-subsection__content__slot {
+    text-align: center;
   }
 }
 

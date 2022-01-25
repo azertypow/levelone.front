@@ -1,5 +1,8 @@
 <template>
   <div class="v-log">
+
+    <video src="../assets/2_Test_NC_Anim.mp4" loop muted autoplay ></video>
+
     <svg width="223"
          height="106"
          viewBox="0 0 223 106"
@@ -58,6 +61,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .v-log {
   position: fixed;
   top: 0;

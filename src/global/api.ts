@@ -5,7 +5,7 @@ export type apiLocation = "home" | "certification"
 export async function apiGet(location: apiLocation): Promise<string | null> {
   switch (location) {
     case "home":
-      return await apiFetch('')
+      return await apiFetch('/home')
   }
 
   return null
