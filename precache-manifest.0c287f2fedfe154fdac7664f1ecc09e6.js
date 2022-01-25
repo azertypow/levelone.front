@@ -1,11 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3b5eac73fbfd79d06bcd",
-    "url": "https://commergnat.com/css/app.f7288493.css"
+    "revision": "3bbcaa606066e8a436ed",
+    "url": "https://commergnat.com/css/app.c1b1f7df.css"
   },
   {
-    "revision": "c5474dfc5bc2e10ecc8d",
-    "url": "https://commergnat.com/css/chunk-3a1b890a.e97e08f3.css"
+    "revision": "7a732d7f37de94b414eb",
+    "url": "https://commergnat.com/css/chunk-2d079007.d118b552.css"
+  },
+  {
+    "revision": "7114c1e8243edcac2b3c",
+    "url": "https://commergnat.com/css/chunk-4cf09a0f.b16a9ea6.css"
+  },
+  {
+    "revision": "8f9b36d09c87e95d0d8cc27ec74aca49",
+    "url": "https://commergnat.com/fonts/MB_Picture_House_One_Light-webfont.woff"
+  },
+  {
+    "revision": "3db23575ba470efdac14518995fb5ff2",
+    "url": "https://commergnat.com/fonts/MB_Picture_House_One_Light-webfont.woff2"
   },
   {
     "revision": "2f26e458da0cb59287cf6ee8446b6a04",
@@ -108,20 +120,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "5f25e1f5db7a8ec2b24da0926aa6895f",
+    "revision": "8bbdec12921794f899580db9ef49affd",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "3b5eac73fbfd79d06bcd",
-    "url": "https://commergnat.com/js/app.98907504.js"
+    "revision": "3bbcaa606066e8a436ed",
+    "url": "https://commergnat.com/js/app.4342349a.js"
   },
   {
-    "revision": "c5474dfc5bc2e10ecc8d",
-    "url": "https://commergnat.com/js/chunk-3a1b890a.d7b9ea26.js"
+    "revision": "7a732d7f37de94b414eb",
+    "url": "https://commergnat.com/js/chunk-2d079007.dfb92a16.js"
   },
   {
-    "revision": "79f7f7de3af0d7826fb6",
-    "url": "https://commergnat.com/js/chunk-vendors.6b9a373a.js"
+    "revision": "7114c1e8243edcac2b3c",
+    "url": "https://commergnat.com/js/chunk-4cf09a0f.cfbae405.js"
+  },
+  {
+    "revision": "725ea77f448891eb08c5",
+    "url": "https://commergnat.com/js/chunk-vendors.6ad0c5d2.js"
   },
   {
     "revision": "e9c04d2125e63763b0aede0a642178cd",
