@@ -1,2 +1,2 @@
 export const BASE_URL = process.env.BASE_URL
-export const API_URL  = process.env.NODE_ENV === "development" ? "http://localhost:8000/" : 'https://api.commergnat.com/'
+export const API_URL  = "https://api.commergnat.com/"
