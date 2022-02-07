@@ -31,7 +31,7 @@ const router = createRouter({
       return {
         el: to.hash,
         behavior: "smooth",
-        top: +100,
+        top: to.hash === '#v-home__main' ? +200 : +100,
       }
     }
   },
