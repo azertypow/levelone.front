@@ -1,22 +1,40 @@
 <template>
   <div class="watch-component lo-g-gutter--half">
     <div class="watch-component__header lo-remove-child-margin">
-      <div>N.C. -2230-311-</div>
-      <div>Ressort de barillet</div>
-      <div>force normale 1</div>
+      <div>NC-Level-One</div>
+      <div class="watch-component__name">{{name}}</div>
     </div>
-    <div class="watch-component__img">
+    <div
+        :style="{
+          backgroundImage: `url(${data.url})`
+        }"
+        class="watch-component__img"
+    >
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {defineComponent, PropType} from 'vue';
+import {IApiImageData} from "@/global/api"
 
 export default defineComponent({
   name: 'WatchComponent',
+
   components: {},
 
+  props: {
+    data: {
+      type: Object as PropType<IApiImageData>,
+      required: true,
+    }
+  },
+
+  computed: {
+    name(): string {
+      return this.data.safeName.replace( 'nc-level-one-' , '')
+    }
+  }
 });
 </script>
 
@@ -33,10 +51,16 @@ export default defineComponent({
   padding-bottom: calc( var(--line-height) * 4 );
 }
 
+.watch-component__name {
+  font-weight: bold;
+}
+
 .watch-component__img {
   background-color: var(--color--grey);
   width: 100%;
   padding-top: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 </style>

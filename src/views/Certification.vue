@@ -6,6 +6,8 @@
       <div class="v-certification__intro__txt lo-remove-child-margin">
         <h1>Bienvenue</h1>
         <p>Retrouvez dans cet espace sur-mesure les informations personnalisées, relatives à votre montre Nicolas Commergnat.</p>
+        <img class="v-certification__intro__ui--left" src="img/ornement-left.svg" alt="">
+        <img class="v-certification__intro__ui--right" src="img/ornement-right.svg" alt="">
       </div>
 
     </div>
@@ -18,7 +20,7 @@
           <div>
             <h2>Level One
             <br>Nicolas Commergnat - Genève
-            <br>N* de ref. 001
+            <br>N* de ref. {{certificationData?.ref.value }}
             </h2>
           </div>
         </div>
@@ -31,45 +33,20 @@
 
       <div class="lo-g-box">
         <div class="lo-g-gutter--half">
-          <div class="v-certification__specifications__img"></div>
+          <div
+              :style="{
+                backgroundImage: `url('${certificationData?.image.url}')`,
+              }"
+              class="v-certification__specifications__img"
+          ></div>
         </div>
 
-        <div class="v-certification__specifications__details lo-g-gutter--half lo-remove-child-margin">
-          <h3>Fonctions</h3>
-          <ul>
-            <li>Simplicité extrême, fonctionnalité essentielle</li>
-            <li>Trois aiguilles, heures, minutes et seconde centrale</li>
-            <li>Première mondiale en horlogerie: indication des quarts</li>
-          </ul>
+        <div
+            v-if="certificationData"
+            v-html="certificationData.specification.value"
+            class="v-certification__specifications__details lo-g-gutter--half lo-remove-child-margin"
+        >
 
-          <h3>Mises en couleurs</h3>
-          <ul>
-            <li>Brillance et effet porcelaine sur base laiton</li>
-            <li>Effet de profondeur: application de plusieurs couches de vernis</li>
-          </ul>
-
-          <h3>Cadran</h3>
-          <ul>
-            <li>Inédit, marqueurs de quarts sur la minuterie des heures Calligraphie épurée, indications des heures et du nom par estampillage</li>
-          </ul>
-
-          <h3>Calibre mécanique</h3>
-          <ul>
-            <li>Fleury Manufacture XXXX - première utilisation en horlogerie Entièrement fabriqué et usiné à l’interne en mode ETA-2824 compatible (solution durable d’assortiment de transmission et d’échappement, universalité de l’assemblage, réparabilité sans limite de temps)</li>
-            <li>28'800 alternances / heure (4 Hertz)</li>
-            <li>Décorations Côtes de Genève, soit selon les 7 côtes hommages au 7 plumes de l’aigle du drapeau genevois</li>
-          </ul>
-
-          <h3>Boîte</h3>
-          <ul>
-            <li>Acier 316L usiné</li>
-            <li>Forme simplissime, ronde, diamètre XXXX</li>
-            <li>Lunette polie, cornes symétriques</li>
-            <li>Harmonie des dimensions, chiffre d’or</li>
-            <li>Verre plexiglas, souple et polissable</li>
-            <li>Fond verre saphir</li>
-            <li>Logo en creusure sur la couronne, pensé et conçu comme une gravure symétrique mécanique: motifs du «N» lovés dans le «C»</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -89,9 +66,10 @@
           <h3>Montre</h3>
         </div>
         <div class="v-certification__components__elements__list lo-g-box">
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
+          <watch-component
+              v-for="component of certificationData?.watch"
+              :data="component"
+          ></watch-component>
         </div>
       </div>
 
@@ -100,14 +78,10 @@
           <h3>Boitier</h3>
         </div>
         <div class="v-certification__components__elements__list lo-g-box">
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
+          <watch-component
+              v-for="component of certificationData?.watchCase"
+              :data="component"
+          ></watch-component>
         </div>
       </div>
 
@@ -117,14 +91,10 @@
           <h3>Cadrant et Aiguilles</h3>
         </div>
         <div class="v-certification__components__elements__list lo-g-box">
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
+          <watch-component
+              v-for="component of certificationData?.watchDial"
+              :data="component"
+          ></watch-component>
         </div>
       </div>
 
@@ -134,14 +104,10 @@
           <h3>Mouvement</h3>
         </div>
         <div class="v-certification__components__elements__list lo-g-box">
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
-          <watch-component></watch-component>
+          <watch-component
+              v-for="component of certificationData?.movement"
+              :data="component"
+          ></watch-component>
         </div>
       </div>
 
@@ -154,6 +120,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import WatchComponent from "@/components/WatchComponent.vue";
+import {apiGet, IApiResponse_certification} from "@/global/api"
 
 export default defineComponent({
   name: 'Certification',
@@ -161,11 +128,17 @@ export default defineComponent({
     WatchComponent
   },
 
+  data() {
+    return {
+      certificationData: null as null | IApiResponse_certification
+    }
+  },
+
   beforeMount() {
-    this.$nextTick(() => {
-      console.log("certification page")
+    this.$nextTick(async () => {
+      this.certificationData = await apiGet("certification")
     })
-  }
+  },
 });
 </script>
 
@@ -182,6 +155,7 @@ h1 {
 ///// intro
 
 .v-certification__intro {
+  position: relative;
   padding-top:    var(--section-padding-top_bottom);
   padding-bottom: var(--section-padding-top_bottom);
   background-color: var(--color--grey);
@@ -193,6 +167,19 @@ h1 {
   max-width: var(--max-width--lg);
   margin: auto;
 }
+
+.v-certification__intro__ui--left,
+.v-certification__intro__ui--right {
+  top: 0;
+  height: 100%;
+  width: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+}
+.v-certification__intro__ui--left   {left: 0}
+.v-certification__intro__ui--right  {right: 0}
 
 
 // specifications
@@ -206,7 +193,11 @@ h1 {
 
   > * {
     > * {
-      width: 50%;
+      width: 100%;
+
+      @media all and (min-width: 1000px) {
+        width: 50%;
+      }
     }
   }
 }
@@ -214,7 +205,13 @@ h1 {
 .v-certification__specifications__img {
   background-color: var(--color--grey);
   width: 100%;
-  padding-top: 100%;
+  padding-top: 33.33333%;
+  background-position: center;
+  background-size: cover;
+
+  @media all and (min-width: 1000px) {
+    padding-top: 100%;
+  }
 }
 
 
@@ -253,4 +250,12 @@ h1 {
 }
 
 
+</style>
+
+<style lang="scss">
+.v-certification__specifications__details {
+  p {
+    font-weight: bold;
+  }
+}
 </style>
