@@ -207,6 +207,7 @@ h1 {
   width: 100%;
   padding-top: 33.33333%;
   background-position: center;
+
   background-size: cover;
 
   @media all and (min-width: 1000px) {

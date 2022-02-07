@@ -1,10 +1,18 @@
 <template>
   <div class="v-home">
 
-    <section-main/>
-    <section-specification/>
-    <section-bio/>
-    <section-talents/>
+    <section-main
+        id="v-home__main"
+    />
+    <section-specification
+        id="v-home__specification"
+    />
+    <section-bio
+        id="v-home__bio"
+    />
+    <section-talents
+        id="v-home__talents"
+    />
 
   </div>
 </template>
