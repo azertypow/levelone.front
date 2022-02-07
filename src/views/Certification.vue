@@ -223,7 +223,11 @@ h1 {
 }
 
 .v-certification__components__header {
-  width: 50%;
+  width: 100%;
+
+  @media all and (min-width: 1000px) {
+    width: 50%;
+  }
 
   > h1 {
     margin-top: 0;
