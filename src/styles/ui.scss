@@ -1,4 +1,5 @@
-button {
+button,
+.lo-ui-button {
   height: auto;
   padding: calc( var(--line-height) / 2 );
   line-height: var(--line-height);
@@ -9,6 +10,7 @@ button {
   background: white;
   border: solid 1px black;
   border-radius: 20px;
+  user-select: none !important;
 
   > * {
     display: inline;
