@@ -5,6 +5,7 @@
       autocomplete="off"
   >
     <input
+        v-if="withFormId"
         autocomplete="off"
         class="v-form-locked-page__id"
         v-model="form_id"
@@ -37,12 +38,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import {useStore} from "vuex"
 import {key} from "@/store"
 
 export default defineComponent({
   name: 'FormLockedPage',
+
+  props: {
+    logID: {
+      required: false,
+      type: String,
+      default: "",
+    }
+  },
 
   mounted() {
     this.$nextTick(() => {
@@ -70,6 +79,11 @@ export default defineComponent({
   },
 
   computed: {
+
+    withFormId(): boolean {
+      return this.logID.length === 0
+    },
+
     buttonPasswordText(): string {
       return this.showPassword ? "cacher le mot de passe" : "afficher le  mot de passe"
     }
@@ -83,8 +97,7 @@ export default defineComponent({
 
     validateForm(e: Event) {
       e.preventDefault()
-      this.store.commit("changeCertificationConnection", {id: this.form_id, password: this.form_passsword} as IValidateData)
-      this.$emit("validate")
+      this.$emit("validate", {id: this.form_id, password: this.form_passsword} as IValidateData)
     }
   }
 

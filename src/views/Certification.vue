@@ -169,7 +169,8 @@ export default defineComponent({
   },
 
   methods: {
-    formValidate() {
+    formValidate(e: IValidateData) {
+      this.store.commit("changeCertificationConnection", {id: e.id, password: e.password} as IValidateData)
       this.updateCertificationData()
     },
 
