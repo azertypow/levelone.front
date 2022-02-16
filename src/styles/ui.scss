@@ -5,6 +5,15 @@ button {
   font-size: var(--font-size);
   cursor: pointer;
   box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+  border: solid 1px black;
+  border-radius: 20px;
+
+  > * {
+    display: inline;
+    vertical-align: middle;
+  }
 }
 
 input {
@@ -13,4 +22,8 @@ input {
   line-height: var(--line-height);
   font-size: var(--font-size);
   box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+  border: solid 1px black;
+  border-radius: 20px;
 }
