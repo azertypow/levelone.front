@@ -1,10 +1,10 @@
 <template>
   <div class="v-hour-animation">
-    <img ref="background" src="img/intro/background.png"  alt="background">
-    <img ref="element"    src="img/intro/ell.png"         alt="element">
-    <img ref="hour"       src="img/intro/hour__resize.png"        alt="hour">
-    <img ref="minute"     src="img/intro/min__resize.png"         alt="minute">
-    <img ref="second"     src="img/intro/sec__resize.png"         alt="second">
+    <img ref="background" src="../assets/intro/background.png" alt="background">
+    <img ref="watch"      src="../assets/intro/watch.png"      alt="element">
+    <img ref="hour"       src="../assets/intro/hour.png"       alt="hour">
+    <img ref="minute"     src="../assets/intro/minute.png"     alt="minute">
+    <img ref="second"     src="../assets/intro/second.png"     alt="second">
   </div>
 </template>
 
