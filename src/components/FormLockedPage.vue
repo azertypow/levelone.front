@@ -33,7 +33,7 @@
     <button
         class="v-form-locked-page__validate-form"
         @click="validateForm"
-    >accéder aux composant de la montre {{form_id}} -></button>
+    >{{ buttonText.length > 0 ? buttonText : `accéder aux composant de la montre ${form_id}` }} -></button>
   </form>
 </template>
 
@@ -47,6 +47,12 @@ export default defineComponent({
 
   props: {
     logID: {
+      required: false,
+      type: String,
+      default: "",
+    },
+
+    buttonText: {
       required: false,
       type: String,
       default: "",

@@ -53,6 +53,7 @@
       <form-locked-page
           class="v-log__form"
           logID="/"
+          button-text="valider"
           @validate="loginToApp"
       ></form-locked-page>
     </div>
