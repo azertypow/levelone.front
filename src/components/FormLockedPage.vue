@@ -97,7 +97,7 @@ export default defineComponent({
 
     validateForm(e: Event) {
       e.preventDefault()
-      this.$emit("validate", {id: this.form_id, password: this.form_passsword} as IValidateData)
+      this.$emit("validate", {id: this.withFormId ? this.form_id : this.logID, password: this.form_passsword} as IValidateData)
     }
   }
 
