@@ -7,3 +7,5 @@ import {key, store} from "@/store"
 import "./styles/_main.scss"
 
 createApp(App).use(router).use(store, key).mount('#app')
+
+store.commit("changeAppConnection")

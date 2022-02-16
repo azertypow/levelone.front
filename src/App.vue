@@ -10,7 +10,9 @@
 
     <router-view/>
 
-    <app-footer></app-footer>
+    <app-footer
+        v-if="!isLogView"
+    ></app-footer>
   </div>
 </template>
 
