@@ -1,17 +1,26 @@
 import {API_URL} from "@/global/variables"
 
-export type apiLocation = "home" | "certification"
+export type apiLocation = "home" | "certification" | string
 
-export async function apiGet(location: apiLocation): Promise< IApiResponse_certification | null > {
+export async function apiGet(location: apiLocation, connectionOption?: {password: string, id: string}):
+  Promise<
+    IApiResonse_home
+    | IApiResponse_certification
+    | null
+    | {error: string}
+  > {
+
   switch (location) {
-    case "home": return await apiFetch('/')
-    case "certification": return await apiFetch('/certification/teste') as IApiResponse_certification
+    case "home": return await apiFetch('/') as IApiResonse_home
+    case "certification": return await apiFetch(`/certification/${connectionOption ? `${connectionOption.id}?password=${connectionOption.password}&` : 'noIdPage'}`) as IApiResponse_certification
   }
 
   return null
 }
 
-export async function apiFetch(query: string) {
+export async function apiFetch(query: string): Promise<Object| "is locked"> {
+
+  console.log(query)
 
   const response = await fetch(
     API_URL + query,
@@ -21,6 +30,29 @@ export async function apiFetch(query: string) {
   )
 
   return await response.json()
+}
+
+export interface IApiResonse_home {
+  intro: {
+    title: string,
+    content: string | null,
+    slides: IApiSlide[] | null
+  },
+  specification: {
+    title: string,
+    content: string | null,
+    slides: IApiSlide[] | null,
+  },
+  biographie: {
+    title: string,
+    content: string | null,
+    slides: IApiSlide[] | null,
+  },
+  talents: {
+    title: string,
+    content: string | null,
+    slides: IApiSlide[] | null,
+  }
 }
 
 
@@ -49,4 +81,9 @@ export interface IApiResponse_certification {
 export interface IApiImageData {
   url: string,
   safeName: string,
+}
+
+export interface IApiSlide {
+  image: string[] | null,
+  content: string | null
 }

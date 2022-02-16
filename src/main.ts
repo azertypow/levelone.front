@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import store from './store'
+import {key, store} from "@/store"
 
 import "./styles/_main.scss"
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(router).use(store, key).mount('#app')

@@ -1,0 +1,16 @@
+button {
+  height: auto;
+  padding: calc( var(--line-height) / 2 );
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input {
+  height: auto;
+  padding: calc( var(--line-height) / 2 );
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+  box-sizing: border-box;
+}
