@@ -5,7 +5,6 @@ import router from './router'
 import {key, store} from "@/store"
 
 import "./styles/_main.scss"
-import {useStore} from "vuex"
 
 router.beforeEach((to, from, next) => {
   if(store.getters.appLockStatus === 'unlock') next()

@@ -1,5 +1,11 @@
 <template>
-  <div class="v-app">
+  <div
+      v-if="store.getters.appLockStatus === 'waiting'"
+      class="v-app v-app__loader"
+  >
+
+  </div>
+  <div class="v-app" v-else>
 
     <div
         v-if="!isLogView"
@@ -20,9 +26,17 @@
 import { defineComponent } from 'vue';
 import NavigationApp from "@/components/NavigationApp.vue"
 import AppFooter from "@/components/AppFooter.vue";
+import {useStore} from "vuex"
+import {key} from "@/store"
 
 export default defineComponent({
   name: 'App',
+
+  data() {
+    return {
+      store: useStore(key)
+    }
+  },
 
   components: {
     AppFooter,
