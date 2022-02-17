@@ -1,8 +1,8 @@
 <template>
   <div class="v-log">
 
-    <video  class="v-log__background" src="../assets/login/background.mp4" loop muted ></video>
-    <img    class="v-log__background" src="../assets/login/background.jpg" alt="login page background">
+    <video  class="v-log__background" src="../assets/login/background.mp4"  muted autoplay ></video>
+<!--    <img    class="v-log__background" src="../assets/login/background.jpg" alt="login page background">-->
 
     <div
         class="v-log__container"
