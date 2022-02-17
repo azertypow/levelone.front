@@ -8,16 +8,30 @@
          src="/img/NC-ui-arrow_2-right.svg"
          alt="ui arrow right navigation"
     />
+
+    <div
+        class="v-image-gallery__imgs"
+    >
+      <img v-for="url of imgsUrls" :src="url" alt="">
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import {defineComponent, PropType} from 'vue';
 
 export default defineComponent({
   name: 'ImageGallery',
+
   components: {
   },
+
+  props: {
+    imgsUrls: {
+      required: true,
+      type: Array as PropType<string[]>,
+    },
+  }
 });
 </script>
 
@@ -29,6 +43,7 @@ export default defineComponent({
   border-top: solid 1px var(--color--main);
   border-bottom: solid 1px var(--color--main);
   box-shadow: black 0 0 0 0;
+  background: var(--color--grey);
 }
 
 .v-image-gallery__ui {

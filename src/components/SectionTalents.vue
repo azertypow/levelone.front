@@ -47,6 +47,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .v-section-talents {
-
+  li {
+    display: block;
+  }
 }
 </style>

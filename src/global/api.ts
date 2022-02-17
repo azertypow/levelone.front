@@ -37,26 +37,18 @@ export interface IApiResponse_locked {
 }
 
 export interface IApiResonse_home {
-  intro: {
-    title: string,
-    content: string | null,
-    slides: IApiSlide[] | null
+  intro: IApiResonse_home__section,
+  specification: IApiResonse_home__section,
+  biographie: IApiResonse_home__section,
+  talents: IApiResonse_home__section
+}
+
+export interface IApiResonse_home__section {
+  title: string,
+  content: {
+    value: string | null,
   },
-  specification: {
-    title: string,
-    content: string | null,
-    slides: IApiSlide[] | null,
-  },
-  biographie: {
-    title: string,
-    content: string | null,
-    slides: IApiSlide[] | null,
-  },
-  talents: {
-    title: string,
-    content: string | null,
-    slides: IApiSlide[] | null,
-  }
+  slides: IApiSlide[] | null
 }
 
 
