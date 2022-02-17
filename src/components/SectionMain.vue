@@ -12,19 +12,18 @@
         class="v-section-main__txt"
     >
       <subsection
-          styleOption="large"
+          styleOption="regular"
           styleType="centred"
           title="Level One"
       >
-        <p>est une entrée de jeu, pleine de surprises. La partie est programmée pour durer, pour transmettre… Level One est une promesse d’initiation, de passage vers d’autres niveaux… Elle est une signature qui engage, qui s’attache. Une montre à vivre, qu’on n’enlève jamais.</p>
-        <p>est une entrée de jeu, pleine de surprises. La partie est programmée pour durer, pour transmettre… Level One est une promesse d’initiation, de passage vers d’autres niveaux… Elle est une signature qui engage, qui s’attache. Une montre à vivre, qu’on n’enlève jamais.</p>
+        <slot></slot>
       </subsection>
     </div>
 
     <div
         class="v-section-main__gallery"
     >
-      <image-gallery/>
+      <image-gallery :imgs-urls="['']"/>
     </div>
 
   </section>

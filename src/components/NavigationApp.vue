@@ -15,10 +15,10 @@
     </div>
 
     <div class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row">
-      <a class="lo-g-gutter--half" ref="">Level One</a>
-      <a class="lo-g-gutter--half" ref="">Biographie</a>
-      <a class="lo-g-gutter--half" ref="">Spécifications</a>
-      <a class="lo-g-gutter--half" ref="">Talents</a>
+      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__main'}">Level One</router-link>
+      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__bio'}">Biographie</router-link>
+      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__specification'}">Spécifications</router-link>
+      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__talents'}">Talents</router-link>
       <router-link class="lo-g-gutter--half" to="/pre-order">Pré-commande</router-link>
       <router-link class="lo-g-gutter--half" to="/certification">Certificats</router-link>
     </div>
@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import {LocationAsPath} from "vue-router"
 
 export default defineComponent({
   name: 'NavigationApp',

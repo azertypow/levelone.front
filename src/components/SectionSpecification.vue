@@ -31,12 +31,31 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Subsection from "@/components/Subsection.vue"
+import {IApiResonse_home__section} from "@/global/api"
+import {useStore} from "vuex"
+import {key} from "@/store"
+// import {} from 'marked'
 
 export default defineComponent({
   name: 'SectionSpecification',
   components: {
     Subsection
   },
+
+  data() {
+    return {
+      store: useStore(key),
+    }
+  },
+
+  computed: {
+    specification(): IApiResonse_home__section | null {
+      if(this.store.state.homeData === null) return null
+      if ('specification' in this.store.state.homeData) return this.store.state.homeData.specification
+      return null
+    }
+  }
+
 });
 </script>
 

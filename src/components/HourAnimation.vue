@@ -1,10 +1,10 @@
 <template>
   <div class="v-hour-animation">
-    <img ref="background" src="img/intro/background.png"  alt="background">
-    <img ref="element"    src="img/intro/ell.png"         alt="element">
-    <img ref="hour"       src="img/intro/hour__resize.png"        alt="hour">
-    <img ref="minute"     src="img/intro/min__resize.png"         alt="minute">
-    <img ref="second"     src="img/intro/sec__resize.png"         alt="second">
+    <img ref="background" src="../assets/intro/background.png" alt="background">
+    <img ref="watch"      src="../assets/intro/watch.png"      alt="element">
+    <img ref="hour"       src="../assets/intro/hour.png"       alt="hour">
+    <img ref="minute"     src="../assets/intro/minute.png"     alt="minute">
+    <img ref="second"     src="../assets/intro/second.png"     alt="second">
   </div>
 </template>
 
@@ -28,21 +28,21 @@ export default defineComponent({
     ){
 
       this.setElementRotation({
-        value: 30 * 2,
-        incrementalAngleValue: 360 / 60 / 2, // 8
         element: second,
+        value: 30,
+        incrementalAngleValue: 360 / 60,
       })
 
       this.setElementRotation({
+        element: minute,
         value: 10,
         incrementalAngleValue: 360 / 60,
-        element: minute,
       })
 
       this.setElementRotation({
+        element: hour,
         value: 10,
         incrementalAngleValue: 360 / 12,
-        element: hour,
       })
 
       setTimeout(() => {
@@ -57,64 +57,83 @@ export default defineComponent({
 
   },
 
+  data() {
+    return {
+      frameCounter: 0,
+    }
+  },
+
   methods: {
 
     startAnimation({second, minute, hour}: { second: HTMLElement, minute: HTMLElement, hour: HTMLElement }) {
 
-      const currentDate = new Date()
+      const timeAnimation = 3000;
 
-      this.animation({
-        frameNumber: 0,
-        el: second,
-        frameRatePerSecond: 60 / 2,
-        incrementalAngleValue: 360 / 60 / 2,
-        value: currentDate.getSeconds(),
+      second.style.transition = `transform ${timeAnimation}ms cubic-bezier(1, 0, .75, 1)`
+      minute.style.transition = `transform ${timeAnimation}ms cubic-bezier(1, 0, .75, 1)`
+      hour.style.transition   = `transform ${timeAnimation}ms cubic-bezier(1, 0, .75, 1)`
+
+      const date = new Date()
+
+      this.setElementRotation({
+        element: second,
+        value:                  (date.getTime() + timeAnimation )/ 1_000 % 60,
+        incrementalAngleValue:  360 / 60,
       })
 
-      this.animation({
-        frameNumber: 0,
-        el: minute,
-        frameRatePerSecond: 60 * 60,
-        incrementalAngleValue: 360 / 60,
-        value: currentDate.getMinutes(),
+      this.setElementRotation({
+        element: minute,
+        value:                  (date.getTime() + timeAnimation ) / 1_000 / 60 % 60,
+        incrementalAngleValue:  360 / 60,
       })
 
-      this.animation({
-        frameNumber: 0,
-        el: hour,
-        frameRatePerSecond: 60 * 60 * 60,
-        incrementalAngleValue: 360 / 12,
-        value: currentDate.getHours() + 1,
+      this.setElementRotation({
+        element: hour,
+        value:                  ( (date.getTime() + timeAnimation ) / 1_000 / 60 / 60 % 24 ) + 1,
+        incrementalAngleValue:  360 / 12,
       })
+
+      window.setTimeout(() => {
+        second.style.transition = ""
+        minute.style.transition = ""
+        hour.style.transition   = ""
+        this.animation({second, minute, hour})
+      }, timeAnimation)
+
+
     },
 
     animation(args: {
-      frameNumber: number,
-      el: HTMLElement,
-      frameRatePerSecond: number,
-      incrementalAngleValue: number,
-      value: number
+      second: HTMLElement,
+      minute: HTMLElement,
+      hour:   HTMLElement,
     }) {
-      window.requestAnimationFrame(() => {
 
-        if (args.frameNumber % args.frameRatePerSecond === 0) {
+      const date = new Date()
 
-          this.setElementRotation({
-            value: args.value,
-            incrementalAngleValue: args.incrementalAngleValue,
-            element: args.el,
-          })
-
-          args.value++
-        }
-
-        this.animation({
-          frameNumber: args.frameNumber + 1,
-          el: args.el,
-          incrementalAngleValue: args.incrementalAngleValue,
-          frameRatePerSecond: args.frameRatePerSecond,
-          value: args.value,
+      // if(this.frameCounter % (60 / 5) === 0) {
+        this.setElementRotation({
+          element: args.second,
+          value:                  date.getTime(),
+          incrementalAngleValue:  360 / 60 / 1_000,
         })
+      // }
+
+      this.setElementRotation({
+        element: args.minute,
+        value:                  date.getTime(),
+        incrementalAngleValue:  360 / 60 / 1_000 / 60,
+      })
+
+      this.setElementRotation({
+        element: args.hour,
+        value:                  date.getTime() + (1_000 * 60 * 60),
+        incrementalAngleValue:  360 / 60 / 1_000 / 60 / 12,
+      })
+
+      window.requestAnimationFrame(() => {
+        this.frameCounter++
+        this.animation({second: args.second, minute: args.minute, hour: args.hour})
       })
     },
 

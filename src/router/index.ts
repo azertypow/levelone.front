@@ -3,14 +3,14 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'Home',
+    component: () => import('../views/Home.vue'),
+  },
+  {
+    path: '/login',
     name: 'Log',
     component: () => import('../views/Log.vue'),
   },
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: () => import('../views/Home.vue'),
-  // },
   // {
   //   path: '/pre-order',
   //   name: 'PreOrder',
@@ -25,7 +25,16 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+        top: to.hash === '#v-home__main' ? +200 : +100,
+      }
+    }
+  },
 })
 
 export default router
