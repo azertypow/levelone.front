@@ -21,13 +21,15 @@
     <div v-if="styleType === 'half'"
          class="v-subsection__content v-subsection__content--half lo-remove-child-margin"
     >
-      <div class="v-subsection__content--half__left">
-        <div class="v-subsection__content--half__left__cover"></div>
+      <h1
+          class="v-subsection__content__title"
+      >{{title}}</h1>
+
+      <div class="v-subsection__content--half__cover">
+        <slot name="halfCover"></slot>
       </div>
+
       <div class="v-subsection__content--half__right">
-        <h1
-            class="v-subsection__content__title"
-        >{{title}}</h1>
         <div
             class="v-subsection__content__slot"
         >
@@ -73,23 +75,6 @@ export default defineComponent({
   padding-bottom: var(--section-padding-top_bottom);
 }
 
-.v-subsection__content {
-  &.v-subsection__content--half {
-    display: flex;
-    align-items: center;
-
-    > * {
-      width: 50%;
-    }
-
-    .v-subsection__content--half__left__cover {
-      width: 300px;
-      height: 300px;
-      background: black;
-    }
-  }
-}
-
 .v-subsection__content__slot {
   text-align: center;
 }
@@ -104,6 +89,31 @@ export default defineComponent({
   li {
     text-decoration: none;
     display: block !important;
+  }
+}
+
+.v-subsection__content.v-subsection__content--half {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .v-subsection__content__title {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .v-subsection__content--half__cover {
+    width: 50%;
+    box-sizing: border-box;
+
+    //width: 300px;
+    //height: 300px;
+    //background: black;
+  }
+
+  .v-subsection__content--half__right {
+    width: 50%;
+    box-sizing: border-box;
   }
 }
 

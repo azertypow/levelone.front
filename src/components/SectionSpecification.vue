@@ -2,27 +2,26 @@
   <section class="v-section-specification"
        id="v-section-specification"
   >
-
     <subsection
         title="Spécifications"
         style-type="centred"
+        v-if="specification !== null"
+        v-for="slide of specification.slides"
     >
-      <div
-          class="v-section-specification__slides"
-          v-for="slide of specification.slides"
-          v-if="specification !== null"
-      >
+      <template v-slot:halfCover >
         <img
             class="v-section-specification__slides__img"
             v-for="img of slide.image"
-            :src="img"
+            :src="img.url"
             alt=""
         >
-        <div
-            class="v-section-specification__slides__content"
-            v-html="slide.content"
-        ></div>
-      </div>
+      </template>
+
+      <div
+          class="v-section-specification__slides__content"
+          v-html="slide.content"
+      ></div>
+
     </subsection>
   </section>
 </template>

@@ -13,6 +13,7 @@
     <section-bio
         id="v-home__bio"
     />
+
     <section-talents
         id="v-home__talents"
     />
