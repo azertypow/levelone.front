@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "06d3ce0c5455014fd006",
+    "revision": "ef70aa2241adacc3e92b",
     "url": "https://commergnat.com/css/app.e0472d84.css"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/css/chunk-49e79169.e0287f5b.css"
   },
   {
-    "revision": "c19754e91f436eca806a",
-    "url": "https://commergnat.com/css/chunk-c1ded1b6.f9911431.css"
+    "revision": "84632d5163446bd42552",
+    "url": "https://commergnat.com/css/chunk-a8d24c4c.77de9185.css"
   },
   {
-    "revision": "c9f182c4cfafbd755bd5",
-    "url": "https://commergnat.com/css/chunk-eb26568e.e29b0e20.css"
+    "revision": "c19754e91f436eca806a",
+    "url": "https://commergnat.com/css/chunk-c1ded1b6.f9911431.css"
   },
   {
     "revision": "8f9b36d09c87e95d0d8cc27ec74aca49",
@@ -108,24 +108,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "b76ef8fac3eb982dd498a9c558e7fb2c",
+    "revision": "19dfc466bd17d8f5b8e708e13f8cfc14",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "06d3ce0c5455014fd006",
-    "url": "https://commergnat.com/js/app.580d264c.js"
+    "revision": "ef70aa2241adacc3e92b",
+    "url": "https://commergnat.com/js/app.c37c977d.js"
   },
   {
     "revision": "93dee5ec326480559ecb",
     "url": "https://commergnat.com/js/chunk-49e79169.bfc3fd6a.js"
   },
   {
-    "revision": "c19754e91f436eca806a",
-    "url": "https://commergnat.com/js/chunk-c1ded1b6.7b7eaa53.js"
+    "revision": "84632d5163446bd42552",
+    "url": "https://commergnat.com/js/chunk-a8d24c4c.fcf62186.js"
   },
   {
-    "revision": "c9f182c4cfafbd755bd5",
-    "url": "https://commergnat.com/js/chunk-eb26568e.d2f8b288.js"
+    "revision": "c19754e91f436eca806a",
+    "url": "https://commergnat.com/js/chunk-c1ded1b6.7b7eaa53.js"
   },
   {
     "revision": "0d3ae5abc68f3021914c",
