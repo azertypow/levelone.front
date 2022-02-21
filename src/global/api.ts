@@ -44,11 +44,9 @@ export interface IApiResonse_home {
 }
 
 export interface IApiResonse_home__section {
-  title: string,
-  content: {
-    value: string | null,
-  },
-  slides: IApiSlide[] | null
+  title:    string,
+  content:  string | null,
+  slides:   IApiSlide[] | null
 }
 
 
