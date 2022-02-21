@@ -7,23 +7,22 @@
         title="Spécifications"
         style-type="centred"
     >
-      <h2>Fonctions</h2>
-      <ul>
-        <li>Simplicité extrême, fonctionnalité essentielle</li>
-        <li>Trois aiguilles, heures, minutes et seconde centrale</li>
-        <li>Première mondiale en horlogerie: indication des quarts</li>
-      </ul>
-
-      <h2>Mises en couleurs</h2>
-      <ul>
-        <li>Brillance et effet porcelaine sur base laiton</li>
-        <li>Effet de profondeur: application de plusieurs couches de vernis</li>
-      </ul>
-
-      <h2>Cadran</h2>
-      <ul>
-        <li>Inédit, marqueurs de quarts sur la minuterie des heures Calligraphie épurée, indications des heures et du nom par estampillage</li>
-      </ul>
+      <div
+          class="v-section-specification__slides"
+          v-for="slide of specification.slides"
+          v-if="specification !== null"
+      >
+        <img
+            class="v-section-specification__slides__img"
+            v-for="img of slide.image"
+            :src="img"
+            alt=""
+        >
+        <div
+            class="v-section-specification__slides__content"
+            v-html="slide.content"
+        ></div>
+      </div>
     </subsection>
   </section>
 </template>
