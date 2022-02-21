@@ -4,7 +4,7 @@
     <section-main
         v-if="intro"
         id="v-home__main"
-    ><div v-html="intro.content.value"></div></section-main>
+    ><div v-html="intro.content"></div></section-main>
 
     <section-specification
         id="v-home__specification"
