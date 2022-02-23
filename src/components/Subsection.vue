@@ -2,10 +2,9 @@
   <section class="v-subsection"
            :class="{
               'is-l': styleOption === 'large',
-              'is-centred': styleType === 'centred',
            }"
   >
-    <div v-if="styleType === 'centred'"
+    <div
          class="v-subsection__content v-subsection__content--centred lo-remove-child-margin"
     >
       <h1
@@ -15,26 +14,6 @@
           class="v-subsection__content__slot"
       >
         <slot></slot>
-      </div>
-    </div>
-
-    <div v-if="styleType === 'half'"
-         class="v-subsection__content v-subsection__content--half lo-remove-child-margin"
-    >
-      <h1
-          class="v-subsection__content__title"
-      >{{title}}</h1>
-
-      <div class="v-subsection__content--half__cover">
-        <slot name="halfCover"></slot>
-      </div>
-
-      <div class="v-subsection__content--half__right">
-        <div
-            class="v-subsection__content__slot"
-        >
-          <slot></slot>
-        </div>
       </div>
     </div>
   </section>
@@ -48,11 +27,6 @@ export default defineComponent({
   components: {
   },
   props:{
-    styleType: {
-      type: String as PropType<"centred" | "half">,
-      require: true,
-    },
-
     styleOption: {
       type: String as PropType<"regular" | "large">,
       require: true,
@@ -67,16 +41,12 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .v-subsection {
   margin: auto;
   max-width:      var(--max-width);
   padding-top:    var(--section-padding-top_bottom);
   padding-bottom: var(--section-padding-top_bottom);
-}
-
-.v-subsection__content__slot {
-  text-align: center;
 }
 
 .v-subsection__content__title {
@@ -92,34 +62,23 @@ export default defineComponent({
   }
 }
 
-.v-subsection__content.v-subsection__content--half {
+.v-subsection__content__slot {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 
-  .v-subsection__content__title {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
     width: 100%;
     box-sizing: border-box;
-  }
-
-  .v-subsection__content--half__cover {
-    width: 50%;
-    box-sizing: border-box;
-
-    //width: 300px;
-    //height: 300px;
-    //background: black;
-  }
-
-  .v-subsection__content--half__right {
-    width: 50%;
-    box-sizing: border-box;
-  }
-}
-
-.v-subsection.is-centred {
-  .v-subsection__content__slot {
-    text-align: center;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
 

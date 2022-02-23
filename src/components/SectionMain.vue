@@ -11,9 +11,16 @@
     <div
         class="v-section-main__txt"
     >
+      <div
+          class="v-section-main__txt__background"
+      >
+        <img alt="" class="v-section-main__txt__background__top"          src="../assets/section_main/home-section_main-top.png">
+        <img alt="" class="v-section-main__txt__background__bottom-right" src="../assets/section_main/home-section_main-bottom-right.png">
+        <img alt="" class="v-section-main__txt__background__bottom-left"  src="../assets/section_main/home-section_main-bottom-left.png">
+      </div>
       <subsection
+          style="text-align: center"
           styleOption="regular"
-          styleType="centred"
           title="Level One"
       >
         <slot></slot>
@@ -55,4 +62,37 @@ export default defineComponent({
   width: 100%;
   height: calc( 100vh - 8rem);
 }
+
+.v-section-main__txt {
+  position: relative;
+}
+
+.v-section-main__txt__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.v-section-main__txt__background__top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.v-section-main__txt__background__bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.v-section-main__txt__background__bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
 </style>

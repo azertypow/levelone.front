@@ -4,23 +4,26 @@
   >
     <subsection
         title="Spécifications"
-        style-type="centred"
         v-if="specification !== null"
-        v-for="slide of specification.slides"
     >
-      <template v-slot:halfCover >
+
+      <div
+          v-for="slide of specification.slides"
+      >
+
         <img
             class="v-section-specification__slides__img"
             v-for="img of slide.image"
             :src="img.url"
             alt=""
         >
-      </template>
 
-      <div
-          class="v-section-specification__slides__content"
-          v-html="slide.content"
-      ></div>
+        <div
+            class="v-section-specification__slides__content"
+            v-html="slide.content"
+        ></div>
+
+      </div>
 
     </subsection>
   </section>

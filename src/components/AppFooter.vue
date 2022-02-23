@@ -11,7 +11,7 @@
       </div>
 
       <div>
-        nicolas@commergnat.com
+        <a href="mailto:nicolas@commergnat.com?subject=Contact%20depuis%20le%20site%20commergnat.com" >nicolas@commergnat.com</a>
       </div>
 
       <div>
