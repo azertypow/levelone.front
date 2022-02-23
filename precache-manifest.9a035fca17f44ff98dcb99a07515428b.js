@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ef70aa2241adacc3e92b",
-    "url": "https://commergnat.com/css/app.e0472d84.css"
+    "revision": "f2be3a69e00fd1849f17",
+    "url": "https://commergnat.com/css/app.86b291d0.css"
+  },
+  {
+    "revision": "8690f67c3d3bfa1d68ef",
+    "url": "https://commergnat.com/css/chunk-3c0383ce.d5f42b3a.css"
   },
   {
     "revision": "93dee5ec326480559ecb",
     "url": "https://commergnat.com/css/chunk-49e79169.e0287f5b.css"
-  },
-  {
-    "revision": "84632d5163446bd42552",
-    "url": "https://commergnat.com/css/chunk-a8d24c4c.77de9185.css"
   },
   {
     "revision": "c19754e91f436eca806a",
@@ -80,6 +80,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/background.5876c05c.png"
   },
   {
+    "revision": "c44220fced3ea50d4036e76d08a6204f",
+    "url": "https://commergnat.com/img/home-section_main-bottom-left.c44220fc.png"
+  },
+  {
+    "revision": "dacbc3485605b0c59c046e628e5d2f6b",
+    "url": "https://commergnat.com/img/home-section_main-bottom-right.dacbc348.png"
+  },
+  {
+    "revision": "dbfe673110b8fcad1ab7236120dcf553",
+    "url": "https://commergnat.com/img/home-section_main-top.dbfe6731.png"
+  },
+  {
     "revision": "54de8e4b4b9f682d2fc85e47be2198b9",
     "url": "https://commergnat.com/img/hour.54de8e4b.png"
   },
@@ -108,20 +120,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "19dfc466bd17d8f5b8e708e13f8cfc14",
+    "revision": "f482d60d5f49c0ae4e36de9b8549025d",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "ef70aa2241adacc3e92b",
-    "url": "https://commergnat.com/js/app.c37c977d.js"
+    "revision": "f2be3a69e00fd1849f17",
+    "url": "https://commergnat.com/js/app.7ce3cd4b.js"
+  },
+  {
+    "revision": "8690f67c3d3bfa1d68ef",
+    "url": "https://commergnat.com/js/chunk-3c0383ce.1d3eaaee.js"
   },
   {
     "revision": "93dee5ec326480559ecb",
     "url": "https://commergnat.com/js/chunk-49e79169.bfc3fd6a.js"
-  },
-  {
-    "revision": "84632d5163446bd42552",
-    "url": "https://commergnat.com/js/chunk-a8d24c4c.fcf62186.js"
   },
   {
     "revision": "c19754e91f436eca806a",
