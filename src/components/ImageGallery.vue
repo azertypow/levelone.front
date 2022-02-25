@@ -1,8 +1,12 @@
 <template>
-  <div class="v-image-gallery">
+  <div
+      ref="imageGallery"
+      class="v-image-gallery"
+  >
     <img class="v-image-gallery__ui v-image-gallery__ui--left"
          src="/img/NC-ui-arrow_2-left.svg"
          alt="ui arrow left navigation"
+         @click="slideInGallery()"
     />
     <img class="v-image-gallery__ui v-image-gallery__ui--right"
          src="/img/NC-ui-arrow_2-right.svg"
@@ -12,13 +16,14 @@
     <div
         class="v-image-gallery__imgs"
     >
-      <img v-for="url of imgsUrls" :src="url" alt="">
+      <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue';
+import {IApiImageData} from "@/global/api"
 
 export default defineComponent({
   name: 'ImageGallery',
@@ -26,12 +31,37 @@ export default defineComponent({
   components: {
   },
 
+  data() {
+    return {
+      currentIndex: 0,
+    }
+  },
+
   props: {
-    imgsUrls: {
+    arrayOfImgData: {
       required: true,
-      type: Array as PropType<string[]>,
+      type: Array as PropType<IApiImageData[]>,
     },
-  }
+  },
+
+  methods: {
+    slideInGallery(direction: 'toLeft' | 'toRight') {
+      if( !(this.$refs.imageGallery instanceof HTMLElement) ) return
+
+      switch (direction) {
+        case "toLeft":
+          const newIndex = this.currentIndex - 1
+          if (newIndex < 0) break
+          this.currentIndex = newIndex
+          this.$refs.imageGallery.scrollTo({
+            left: newIndex * this.$refs.imageGallery.getBoundingClientRect().width,
+            behavior: 'smooth',
+          })
+
+      }
+    },
+
+  },
 });
 </script>
 

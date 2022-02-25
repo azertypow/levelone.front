@@ -30,7 +30,7 @@
     <div
         class="v-section-main__gallery"
     >
-      <image-gallery :imgs-urls="['']"/>
+      <image-gallery v-if="imageGallery" :arrayOfImgData="imageGallery"/>
     </div>
 
   </section>
@@ -41,14 +41,32 @@ import { defineComponent } from 'vue';
 import ImageGallery from "@/components/ImageGallery.vue"
 import HourAnimation from "@/components/HourAnimation.vue"
 import Subsection from "@/components/Subsection.vue"
+import {useStore} from "vuex"
+import {key} from "@/store"
+import {IApiImageData, IApiResonse_home} from "@/global/api"
 
 export default defineComponent({
   name: 'SectionMain',
+
   components: {
     Subsection,
     HourAnimation,
     ImageGallery
   },
+
+  data() {
+    return {
+      store: useStore(key),
+    }
+  },
+
+  computed: {
+    imageGallery(): null | IApiImageData[] {
+      if (this.store.state.homeData === null || !('slider' in this.store.state.homeData)) null
+      return (this.store.state.homeData as IApiResonse_home).slider
+    }
+  }
+
 });
 </script>
 

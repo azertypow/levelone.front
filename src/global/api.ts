@@ -38,6 +38,7 @@ export interface IApiResponse_locked {
 
 export interface IApiResonse_home {
   intro:          IApiResonse_home__section,
+  slider:         IApiImageData[],
   specification:  IApiResonse_home__section,
   biographie:     IApiResonse_home__section,
   talents:        IApiResonse_home__section,
