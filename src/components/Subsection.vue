@@ -104,6 +104,10 @@ export default defineComponent({
 .v-subsection.is-l {
   max-width: var(--max-width--lg);
 
+  ul {
+    padding: 0;
+  }
+
   li {
     text-decoration: none;
     display: block !important;
@@ -128,8 +132,6 @@ export default defineComponent({
     box-sizing: border-box;
     flex-shrink: 0;
     scroll-snap-align: start;
-    //padding-right: var(--gutter--half);
-    //padding-left: var(--gutter--half);
   }
 }
 
@@ -137,6 +139,11 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   cursor: pointer;
+
+  > * {
+    padding-left: var(--gutter--half);
+    padding-right: var(--gutter--half);
+  }
 }
 
 </style>
