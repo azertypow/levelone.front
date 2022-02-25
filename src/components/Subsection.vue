@@ -12,10 +12,19 @@
       >{{title}}</h1>
       <div
           class="v-subsection__content__slot"
+          ref="scrollContent"
       >
         <slot></slot>
       </div>
     </div>
+
+    <div
+        class="v-subsection__ui-box"
+    >
+      <img @click="slideInGallery('toLeft')" src="../assets/ui/gallery-arrow-left.svg" alt="">
+      <img @click="slideInGallery('toRight')" src="../assets/ui/gallery-arrow-right.svg" alt="">
+    </div>
+
   </section>
 </template>
 
@@ -26,6 +35,14 @@ export default defineComponent({
   name: 'Subsection',
   components: {
   },
+
+  data() {
+    return {
+      currentIndex: 0,
+      lenght: 4,
+    }
+  },
+
   props:{
     styleOption: {
       type: String as PropType<"regular" | "large">,
@@ -37,7 +54,39 @@ export default defineComponent({
       type: String,
       require: true,
     }
+  },
+
+  methods: {
+    slideInGallery(direction: 'toLeft' | 'toRight') {
+      if( !(this.$refs.scrollContent instanceof HTMLElement) ) return
+
+      let index = this.currentIndex
+
+      switch (direction) {
+        case "toLeft":
+          index--
+          if (index < 0) break
+          this.currentIndex = index
+          this.$refs.scrollContent.scrollTo({
+            left: index * this.$refs.scrollContent.getBoundingClientRect().width,
+            behavior: 'smooth',
+          })
+          break
+        case "toRight":
+          index++
+          if (index >= this.lenght) break
+          this.currentIndex = index
+          this.$refs.scrollContent.scrollTo({
+            left: index * this.$refs.scrollContent.getBoundingClientRect().width,
+            behavior: 'smooth',
+          })
+          console.log('right')
+
+      }
+    },
+
   }
+
 });
 </script>
 
@@ -83,6 +132,12 @@ export default defineComponent({
     padding-right: var(--gutter--half);
     padding-left: var(--gutter--half);
   }
+}
+
+.v-subsection__ui-box {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
 
 </style>
