@@ -19,6 +19,16 @@
     >
       <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
     </div>
+
+    <div
+        class="v-image-gallery__counter"
+    >
+      <template v-for="imageDataIndex in Object.keys(arrayOfImgData).length" >
+        <img  :alt="imageDataIndex" v-if="imageDataIndex-1 === currentIndex" src="../assets/ui/counter--active.svg">
+        <img  :alt="imageDataIndex" v-else                                 src="../assets/ui/counter--unactive.svg">
+      </template>
+    </div>
+
   </div>
 </template>
 
@@ -34,7 +44,7 @@ export default defineComponent({
 
   data() {
     return {
-      currentIndex: 1,
+      currentIndex: 0,
     }
   },
 
@@ -63,7 +73,7 @@ export default defineComponent({
           break
         case "toRight":
           index++
-          if (index >= this.arrayOfImgData.length) break
+          if (index >= Object.keys( this.arrayOfImgData ).length) break
           this.currentIndex = index
           this.$refs.imageGallery.scrollTo({
             left: index * this.$refs.imageGallery.getBoundingClientRect().width,
@@ -97,6 +107,13 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   position: relative;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   > * {
     display: block;
@@ -104,6 +121,23 @@ export default defineComponent({
     height: 100%;
     object-fit: cover;
     flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.v-image-gallery__counter {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: var(--gutter--half);
+  box-sizing: border-box;
+
+  > img {
+    display: block;
+    user-select: none;
+    cursor: pointer;
+    padding: calc( var(--gutter--half) / 2 );
   }
 }
 
