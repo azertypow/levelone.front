@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f2be3a69e00fd1849f17",
+    "revision": "f7a74dbd16aec2af2513",
     "url": "https://commergnat.com/css/app.86b291d0.css"
   },
   {
-    "revision": "8690f67c3d3bfa1d68ef",
-    "url": "https://commergnat.com/css/chunk-3c0383ce.d5f42b3a.css"
+    "revision": "9e017d26ee195b4f0712",
+    "url": "https://commergnat.com/css/chunk-052d187a.f1dba7ef.css"
   },
   {
     "revision": "93dee5ec326480559ecb",
@@ -80,6 +80,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/background.5876c05c.png"
   },
   {
+    "revision": "24d7ecff18b5a55553499ca57843f072",
+    "url": "https://commergnat.com/img/counter--active.24d7ecff.svg"
+  },
+  {
+    "revision": "52f9c72ef0241b263adc288761a2489e",
+    "url": "https://commergnat.com/img/counter--unactive.52f9c72e.svg"
+  },
+  {
+    "revision": "63739d07e763185a3913e9ce753baa99",
+    "url": "https://commergnat.com/img/gallery-arrow-left.63739d07.svg"
+  },
+  {
+    "revision": "400917badcb60434c6cb787b8f53c19f",
+    "url": "https://commergnat.com/img/gallery-arrow-right.400917ba.svg"
+  },
+  {
     "revision": "c44220fced3ea50d4036e76d08a6204f",
     "url": "https://commergnat.com/img/home-section_main-bottom-left.c44220fc.png"
   },
@@ -120,16 +136,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "f482d60d5f49c0ae4e36de9b8549025d",
+    "revision": "aca53aa5ae96b2ab32c1dd7ce250c39b",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "f2be3a69e00fd1849f17",
-    "url": "https://commergnat.com/js/app.7ce3cd4b.js"
+    "revision": "f7a74dbd16aec2af2513",
+    "url": "https://commergnat.com/js/app.932a3ee5.js"
   },
   {
-    "revision": "8690f67c3d3bfa1d68ef",
-    "url": "https://commergnat.com/js/chunk-3c0383ce.1d3eaaee.js"
+    "revision": "9e017d26ee195b4f0712",
+    "url": "https://commergnat.com/js/chunk-052d187a.8345d1b6.js"
   },
   {
     "revision": "93dee5ec326480559ecb",
