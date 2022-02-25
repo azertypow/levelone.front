@@ -78,5 +78,8 @@ export default defineComponent({
 
 .v-navigation-app__bottom {
   border-bottom: solid 1px var(--color--main);
+  a {
+    text-decoration: none;
+  }
 }
 </style>

@@ -22,6 +22,7 @@
           style="text-align: center"
           styleOption="regular"
           title="Level One"
+          :arrowNav="false"
       >
         <slot></slot>
       </subsection>

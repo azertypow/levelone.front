@@ -7,6 +7,8 @@
         styleOption="large"
         style="text-align: center"
         v-if="talents !== null"
+        :arrowNav="false"
+        :titleVariant="true"
     >
       <div v-html="talents.content" ></div>
     </subsection>

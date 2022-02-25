@@ -9,6 +9,9 @@
     >
       <h1
           class="v-subsection__content__title"
+          :class="{
+            'title-variant': titleVariant
+          }"
       >{{title}}</h1>
       <div
           class="v-subsection__content__slot"
@@ -20,6 +23,7 @@
 
     <div
         class="v-subsection__ui-box"
+        v-if="arrowNav"
     >
       <img @click="slideInGallery('toLeft')" src="../assets/ui/gallery-arrow-left.svg" alt="">
       <img @click="slideInGallery('toRight')" src="../assets/ui/gallery-arrow-right.svg" alt="">
@@ -52,7 +56,19 @@ export default defineComponent({
     title: {
       type: String,
       require: true,
-    }
+    },
+
+    arrowNav: {
+      type: Boolean,
+      require: false,
+      default: true,
+    },
+
+    titleVariant: {
+      type: Boolean,
+      require: false,
+      default: false,
+    },
   },
 
   methods: {
@@ -99,6 +115,11 @@ export default defineComponent({
 
 .v-subsection__content__title {
   text-align: center;
+}
+
+.title-variant {
+  font-family: var(--font-family);
+  font-weight: 400;
 }
 
 .v-subsection.is-l {
