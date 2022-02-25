@@ -1,20 +1,21 @@
 <template>
   <div
-      ref="imageGallery"
       class="v-image-gallery"
   >
     <img class="v-image-gallery__ui v-image-gallery__ui--left"
          src="/img/NC-ui-arrow_2-left.svg"
          alt="ui arrow left navigation"
-         @click="slideInGallery()"
+         @click="slideInGallery('toLeft')"
     />
     <img class="v-image-gallery__ui v-image-gallery__ui--right"
          src="/img/NC-ui-arrow_2-right.svg"
          alt="ui arrow right navigation"
+         @click="slideInGallery('toRight')"
     />
 
     <div
         class="v-image-gallery__imgs"
+        ref="imageGallery"
     >
       <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
     </div>
@@ -33,14 +34,14 @@ export default defineComponent({
 
   data() {
     return {
-      currentIndex: 0,
+      currentIndex: 1,
     }
   },
 
   props: {
     arrayOfImgData: {
       required: true,
-      type: Array as PropType<IApiImageData[]>,
+      type: Object as PropType<IApiImageData[]>,
     },
   },
 
@@ -48,15 +49,27 @@ export default defineComponent({
     slideInGallery(direction: 'toLeft' | 'toRight') {
       if( !(this.$refs.imageGallery instanceof HTMLElement) ) return
 
+      let index = this.currentIndex
+
       switch (direction) {
         case "toLeft":
-          const newIndex = this.currentIndex - 1
-          if (newIndex < 0) break
-          this.currentIndex = newIndex
+          index--
+          if (index < 0) break
+          this.currentIndex = index
           this.$refs.imageGallery.scrollTo({
-            left: newIndex * this.$refs.imageGallery.getBoundingClientRect().width,
+            left: index * this.$refs.imageGallery.getBoundingClientRect().width,
             behavior: 'smooth',
           })
+          break
+        case "toRight":
+          index++
+          if (index >= this.arrayOfImgData.length) break
+          this.currentIndex = index
+          this.$refs.imageGallery.scrollTo({
+            left: index * this.$refs.imageGallery.getBoundingClientRect().width,
+            behavior: 'smooth',
+          })
+          console.log('right')
 
       }
     },
@@ -74,12 +87,32 @@ export default defineComponent({
   border-bottom: solid 1px var(--color--main);
   box-shadow: black 0 0 0 0;
   background: var(--color--grey);
+
+}
+
+.v-image-gallery__imgs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  > * {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
 }
 
 .v-image-gallery__ui {
   position: absolute;
   top: 50%;
   height: 50px;
+  cursor: pointer;
+  z-index: 10;
 
   &.v-image-gallery__ui--left {
     left: 0;
