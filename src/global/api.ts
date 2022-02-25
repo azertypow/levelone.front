@@ -79,6 +79,6 @@ export interface IApiImageData {
 }
 
 export interface IApiSlide {
-  image: IApiImageData[] | null,
+  image: {[key: string]: IApiImageData} | null,
   content: string | null
 }

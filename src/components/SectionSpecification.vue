@@ -9,6 +9,8 @@
 
       <div
           v-for="slide of specification.slides"
+          class="v-section-specification__slides"
+          :class="{half: Object.keys( slide.image ).length > 0}"
       >
 
         <img
@@ -63,5 +65,23 @@ export default defineComponent({
 <style lang="scss" scoped>
 .v-section-specification {
 
+}
+
+.v-section-specification__slides {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > * {
+    box-sizing: border-box;
+    width: 100%;
+    flex-shrink: 1;
+    padding-left: var(--gutter--half);
+    padding-right: var(--gutter--half);
+  }
+
+  &.half {
+    width: 50%;
+  }
 }
 </style>

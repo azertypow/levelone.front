@@ -39,7 +39,6 @@ export default defineComponent({
   data() {
     return {
       currentIndex: 0,
-      lenght: 4,
     }
   },
 
@@ -74,7 +73,7 @@ export default defineComponent({
           break
         case "toRight":
           index++
-          if (index >= this.lenght) break
+          if (index >= this.$refs.scrollContent.childElementCount) break
           this.currentIndex = index
           this.$refs.scrollContent.scrollTo({
             left: index * this.$refs.scrollContent.getBoundingClientRect().width,
@@ -129,8 +128,8 @@ export default defineComponent({
     box-sizing: border-box;
     flex-shrink: 0;
     scroll-snap-align: start;
-    padding-right: var(--gutter--half);
-    padding-left: var(--gutter--half);
+    //padding-right: var(--gutter--half);
+    //padding-left: var(--gutter--half);
   }
 }
 

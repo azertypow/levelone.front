@@ -8,17 +8,19 @@
     >
       <div
           v-for="slide of biographie.slides"
+          class="v-section-bio__slides"
+          :class="{half: Object.keys( slide.image ).length > 0}"
       >
 
         <img
-            class="v-section-specification__slides__img"
+            class="v-section-bio__slides__img"
             v-for="img of slide.image"
             :src="img.url"
             alt=""
         >
 
         <div
-            class="v-section-specification__slides__content"
+            class="v-section-bio__slides__content"
             v-html="slide.content"
         ></div>
 
@@ -61,5 +63,25 @@ export default defineComponent({
 <style lang="scss" scoped>
 .v-section-bio {
 
+}
+
+.v-section-bio__slides {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  > * {
+    box-sizing: border-box;
+    width: 100%;
+    flex-shrink: 1;
+    padding-left: var(--gutter--half);
+    padding-right: var(--gutter--half);
+  }
+
+  &.half {
+    > * {
+      width: 50%;
+    }
+  }
 }
 </style>
