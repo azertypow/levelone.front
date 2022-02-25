@@ -117,7 +117,7 @@ export default defineComponent({
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   scroll-snap-type: x mandatory;
-  align-items: center;
+  align-items: start;
 
   &::-webkit-scrollbar {
     display: none;
