@@ -66,7 +66,10 @@ export default defineComponent({
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
   scroll-snap-type: x mandatory;
+  align-items: center;
 
   &::-webkit-scrollbar {
     display: none;
@@ -77,8 +80,8 @@ export default defineComponent({
     box-sizing: border-box;
     flex-shrink: 0;
     scroll-snap-align: start;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    padding-right: var(--gutter--half);
+    padding-left: var(--gutter--half);
   }
 }
 
