@@ -1,10 +1,12 @@
 <template>
   <div class="v-hour-animation">
-    <img ref="background" src="../assets/intro/background.png" alt="background">
-    <img ref="watch"      src="../assets/intro/watch.png"      alt="element">
-    <img ref="hour"       src="../assets/intro/hour.png"       alt="hour">
-    <img ref="minute"     src="../assets/intro/minute.png"     alt="minute">
-    <img ref="second"     src="../assets/intro/second.png"     alt="second">
+    <div class="v-hour-animation__container">
+      <img ref="background" src="../assets/intro/background.png" alt="background">
+      <img ref="watch"      src="../assets/intro/watch.png"      alt="element">
+      <img ref="hour"       src="../assets/intro/hour.png"       alt="hour">
+      <img ref="minute"     src="../assets/intro/minute.png"     alt="minute">
+      <img ref="second"     src="../assets/intro/second.png"     alt="second">
+    </div>
   </div>
 </template>
 
@@ -158,14 +160,26 @@ export default defineComponent({
   height: 100%;
   position: relative;
   overflow: hidden;
-
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-  }
 }
+
+.v-hour-animation__container {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+}
+
+img:first-child {
+  position: relative;
+}
+
 </style>
