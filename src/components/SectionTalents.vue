@@ -2,8 +2,16 @@
   <section class="v-section-talents"
        id="v-section-talents"
   >
+    <div
+        class="v-section-talents__background"
+    >
+      <img alt="" class="v-section-talents__background__top"           src="../assets/section_specification/background-specification__top.svg">
+      <img alt="" class="v-section-talents__background__bottom-left"   src="../assets/section_specification/background-specification__left.svg">
+      <img alt="" class="v-section-talents__background__bottom-right"  src="../assets/section_specification/background-specification__right.svg">
+    </div>
+
     <subsection
-        title="Talents réunis, Level One"
+        title="Talents réunis"
         styleOption="large"
         style="text-align: center"
         v-if="talents !== null"
@@ -49,6 +57,7 @@ export default defineComponent({
 <style lang="scss" >
 .v-section-talents {
   font-family: MB_Picture_House_One_Light, sans-serif;
+  position: relative;
 
   p {
     color: var(--color--main);
@@ -61,4 +70,30 @@ export default defineComponent({
     padding-bottom: calc(var(--line-height) / 2);
   }
 }
+
+.v-section-talents__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.v-section-talents__background__top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.v-section-talents__background__bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.v-section-talents__background__bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 </style>
