@@ -61,7 +61,6 @@ export default defineComponent({
   position: fixed;
   width: 100%;
   top: 0;
-  background: var(--color--light);
   z-index: 1000000;
 }
 </style>

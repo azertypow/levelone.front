@@ -19,7 +19,10 @@
       </router-link>
     </div>
 
-    <div class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row">
+    <div
+        class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row"
+        :class="{'hide': hide}"
+    >
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__main'}">Level One</router-link>
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__bio'}">Biographie</router-link>
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__specification'}">Spécifications</router-link>
@@ -50,9 +53,22 @@ export default defineComponent({
           month:    "long",
           year:   "numeric",
         })
-      })()
+      })(),
+
+      hide: false,
     }
-  }
+  },
+
+  mounted() {
+    let holdScrollValue = 0
+
+    window.addEventListener("scroll", (e) => {
+      if      (holdScrollValue < window.scrollY) this.hide = true
+      else if (holdScrollValue > window.scrollY) this.hide = false
+      holdScrollValue = window.scrollY
+    })
+  },
+
 });
 </script>
 
@@ -65,6 +81,8 @@ export default defineComponent({
 .v-navigation-app__top {
   position: relative;
   border-bottom: solid 1px var(--color--main);
+  background: var(--color--light);
+  z-index: 10;
 }
 
 .v-navigation-app__top__date {
@@ -86,9 +104,21 @@ export default defineComponent({
 }
 
 .v-navigation-app__bottom {
+  position: relative;
   border-bottom: solid 1px var(--color--main);
+  transform: translateY(0);
+  transition: transform 250ms, opacity 350ms;
+  background: var(--color--light);
+  z-index: 0;
+  opacity: 1;
+
   a {
     text-decoration: none;
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 </style>
