@@ -160,6 +160,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   cursor: pointer;
+  padding-top: var( --gutter );
 
   > * {
     padding-left: var(--gutter--half);
