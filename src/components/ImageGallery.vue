@@ -16,6 +16,7 @@
     <div
         class="v-image-gallery__imgs"
         ref="imageGallery"
+        @scroll="onScrollInGallery"
     >
       <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
     </div>
@@ -56,6 +57,16 @@ export default defineComponent({
   },
 
   methods: {
+
+    onScrollInGallery(e: MouseEvent) {
+      if( !(this.$refs.imageGallery instanceof HTMLElement) ) return
+
+      const scrollLeft        = this.$refs.imageGallery.scrollLeft
+      const imageGalleryWidth = this.$refs.imageGallery.getBoundingClientRect().width
+
+      this.currentIndex = Math.floor( (scrollLeft + imageGalleryWidth / 2 ) / imageGalleryWidth )
+    },
+
     slideInGallery(direction: 'toLeft' | 'toRight') {
       if( !(this.$refs.imageGallery instanceof HTMLElement) ) return
 
@@ -65,7 +76,6 @@ export default defineComponent({
         case "toLeft":
           index--
           if (index < 0) break
-          this.currentIndex = index
           this.$refs.imageGallery.scrollTo({
             left: index * this.$refs.imageGallery.getBoundingClientRect().width,
             behavior: 'smooth',
@@ -74,7 +84,6 @@ export default defineComponent({
         case "toRight":
           index++
           if (index >= Object.keys( this.arrayOfImgData ).length) break
-          this.currentIndex = index
           this.$refs.imageGallery.scrollTo({
             left: index * this.$refs.imageGallery.getBoundingClientRect().width,
             behavior: 'smooth',
