@@ -16,6 +16,7 @@
       <div
           class="v-subsection__content__slot"
           ref="scrollContent"
+          @scroll="onScrollInSlideContainer"
       >
         <slot></slot>
       </div>
@@ -25,8 +26,11 @@
         class="v-subsection__ui-box"
         v-if="arrowNav"
     >
-      <img @click="slideInGallery('toLeft')" src="../assets/ui/gallery-arrow-left.svg" alt="">
-      <img @click="slideInGallery('toRight')" src="../assets/ui/gallery-arrow-right.svg" alt="">
+      <img class="v-subsection__ui--left" v-if="currentIndex > 0"  @click="slideInGallery('toLeft')"  src="../assets/ui/gallery-arrow-left__active.svg"    alt="">
+      <img class="v-subsection__ui--left" v-else                   @click="slideInGallery('toLeft')"  src="../assets/ui/gallery-arrow-left__unactive.svg"  alt="">
+
+      <img class="v-subsection__ui--right" v-if="isLastSlide"       @click="slideInGallery('toRight')" src="../assets/ui/gallery-arrow-right__unactive.svg" alt="">
+      <img class="v-subsection__ui--right" v-else                   @click="slideInGallery('toRight')" src="../assets/ui/gallery-arrow-right__active.svg"   alt="">
     </div>
 
   </section>
@@ -40,9 +44,17 @@ export default defineComponent({
   components: {
   },
 
+  mounted() {
+    this.$nextTick(() => {
+      if( this.$refs.scrollContent instanceof HTMLElement)
+        this.slideNumber = this.$refs.scrollContent.childElementCount
+    })
+  },
+
   data() {
     return {
       currentIndex: 0,
+      slideNumber: 1,
     }
   },
 
@@ -71,7 +83,22 @@ export default defineComponent({
     },
   },
 
+  computed: {
+    isLastSlide(): boolean {
+      return this.currentIndex + 1 === this.slideNumber
+    }
+  },
+
   methods: {
+    onScrollInSlideContainer(e: MouseEvent) {
+      if( !(this.$refs.scrollContent instanceof HTMLElement) ) return
+
+      const scrollLeft        = this.$refs.scrollContent.scrollLeft
+      const imageGalleryWidth = this.$refs.scrollContent.getBoundingClientRect().width
+
+      this.currentIndex = Math.floor( (scrollLeft + imageGalleryWidth / 2 ) / imageGalleryWidth )
+    },
+
     slideInGallery(direction: 'toLeft' | 'toRight') {
       if( !(this.$refs.scrollContent instanceof HTMLElement) ) return
 
@@ -81,7 +108,6 @@ export default defineComponent({
         case "toLeft":
           index--
           if (index < 0) break
-          this.currentIndex = index
           this.$refs.scrollContent.scrollTo({
             left: index * this.$refs.scrollContent.getBoundingClientRect().width,
             behavior: 'smooth',
@@ -89,14 +115,11 @@ export default defineComponent({
           break
         case "toRight":
           index++
-          if (index >= this.$refs.scrollContent.childElementCount) break
-          this.currentIndex = index
+          if (index >= this.slideNumber) break
           this.$refs.scrollContent.scrollTo({
             left: index * this.$refs.scrollContent.getBoundingClientRect().width,
             behavior: 'smooth',
           })
-          console.log('right')
-
       }
     },
 
@@ -157,15 +180,28 @@ export default defineComponent({
 }
 
 .v-subsection__ui-box {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  padding-top: var( --gutter );
+  position: relative;
+  margin-top: var( --gutter );
+  width: 0;
+  left: 50%;
+}
 
-  > * {
-    padding-left: var(--gutter--half);
-    padding-right: var(--gutter--half);
-  }
+.v-subsection__ui--left {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-left: var(--gutter--half);
+  padding-right: var(--gutter--half);
+}
+
+.v-subsection__ui--right {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: var(--gutter--half);
+  padding-right: var(--gutter--half);
 }
 
 </style>
