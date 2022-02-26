@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6cac28a51ff4254da70c",
-    "url": "https://commergnat.com/css/app.cb474a4c.css"
-  },
-  {
-    "revision": "e43aa2d4afcdb4c201cd",
-    "url": "https://commergnat.com/css/chunk-3c565aa4.de2216c1.css"
+    "revision": "407fbc437b2e2ee6a554",
+    "url": "https://commergnat.com/css/app.762bed7e.css"
   },
   {
     "revision": "93dee5ec326480559ecb",
     "url": "https://commergnat.com/css/chunk-49e79169.e0287f5b.css"
+  },
+  {
+    "revision": "f9e944a40b59ced3eed8",
+    "url": "https://commergnat.com/css/chunk-77da6372.2c9e9c6e.css"
   },
   {
     "revision": "c19754e91f436eca806a",
@@ -76,6 +76,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/NC_logo.svg"
   },
   {
+    "revision": "ecf0d078d56b35aca439527c1afd991b",
+    "url": "https://commergnat.com/img/background-specification__left.ecf0d078.svg"
+  },
+  {
+    "revision": "5c517256b3154502649100e5b747b475",
+    "url": "https://commergnat.com/img/background-specification__right.5c517256.svg"
+  },
+  {
+    "revision": "82009d491442a17067d7d622c02caa9d",
+    "url": "https://commergnat.com/img/background-specification__top.82009d49.svg"
+  },
+  {
     "revision": "5876c05c255ac2915e5d265244e8dab3",
     "url": "https://commergnat.com/img/background.5876c05c.png"
   },
@@ -88,12 +100,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/counter--unactive.52f9c72e.svg"
   },
   {
+    "revision": "4b95bfa0b2c73e63bea94b39f43cb77e",
+    "url": "https://commergnat.com/img/gallery-arrow-left__active.4b95bfa0.svg"
+  },
+  {
     "revision": "63739d07e763185a3913e9ce753baa99",
-    "url": "https://commergnat.com/img/gallery-arrow-left.63739d07.svg"
+    "url": "https://commergnat.com/img/gallery-arrow-left__unactive.63739d07.svg"
   },
   {
     "revision": "cb1216e91986013c8fb13455d0b8faa8",
-    "url": "https://commergnat.com/img/gallery-arrow-right.cb1216e9.svg"
+    "url": "https://commergnat.com/img/gallery-arrow-right__active.cb1216e9.svg"
+  },
+  {
+    "revision": "69cfd2850723da80e7225a1b500fa2f0",
+    "url": "https://commergnat.com/img/gallery-arrow-right__unactive.69cfd285.svg"
   },
   {
     "revision": "c44220fced3ea50d4036e76d08a6204f",
@@ -136,28 +156,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "6597ad239e89c868d036ec913ac5decd",
+    "revision": "cb78cea6b3672589fc0c6c965c00ab6a",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "6cac28a51ff4254da70c",
-    "url": "https://commergnat.com/js/app.4999cf58.js"
-  },
-  {
-    "revision": "e43aa2d4afcdb4c201cd",
-    "url": "https://commergnat.com/js/chunk-3c565aa4.989766b1.js"
+    "revision": "407fbc437b2e2ee6a554",
+    "url": "https://commergnat.com/js/app.05d619bb.js"
   },
   {
     "revision": "93dee5ec326480559ecb",
     "url": "https://commergnat.com/js/chunk-49e79169.bfc3fd6a.js"
   },
   {
+    "revision": "f9e944a40b59ced3eed8",
+    "url": "https://commergnat.com/js/chunk-77da6372.e0e3abf9.js"
+  },
+  {
     "revision": "c19754e91f436eca806a",
     "url": "https://commergnat.com/js/chunk-c1ded1b6.7b7eaa53.js"
   },
   {
-    "revision": "0d3ae5abc68f3021914c",
-    "url": "https://commergnat.com/js/chunk-vendors.42ffb506.js"
+    "revision": "2911987fa01aebec3be2",
+    "url": "https://commergnat.com/js/chunk-vendors.930fbc75.js"
   },
   {
     "revision": "e9c04d2125e63763b0aede0a642178cd",
