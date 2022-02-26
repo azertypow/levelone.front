@@ -9,9 +9,14 @@
         {{date}}
       </div>
 
-      <img
-          class="v-navigation-app__top__logo"
-          src="/img/NC_logo.svg" alt="logo">
+      <router-link
+          class="v-navigation-app__top__logo-link"
+          :to="{path: '/', hash: '#v-home__main'}"
+      >
+        <img
+            class="v-navigation-app__top__logo"
+            src="/img/NC_logo.svg" alt="logo">
+      </router-link>
     </div>
 
     <div class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row">
@@ -67,6 +72,10 @@ export default defineComponent({
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.v-navigation-app__top__logo-link {
+  display: block;
 }
 
 .v-navigation-app__top__logo {
