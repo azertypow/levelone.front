@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1eeb754d322a89f61c69",
-    "url": "https://commergnat.com/css/app.762bed7e.css"
+    "revision": "a1cd2dd4f215248c745d",
+    "url": "https://commergnat.com/css/app.589ee6df.css"
   },
   {
-    "revision": "93dee5ec326480559ecb",
-    "url": "https://commergnat.com/css/chunk-49e79169.e0287f5b.css"
+    "revision": "d77f86bc50f25b859dbd",
+    "url": "https://commergnat.com/css/chunk-4d2d9c55.c349049b.css"
   },
   {
-    "revision": "f9e944a40b59ced3eed8",
-    "url": "https://commergnat.com/css/chunk-77da6372.2c9e9c6e.css"
+    "revision": "04292d8863f928001042",
+    "url": "https://commergnat.com/css/chunk-54995bd3.84472b54.css"
   },
   {
-    "revision": "c19754e91f436eca806a",
-    "url": "https://commergnat.com/css/chunk-c1ded1b6.f9911431.css"
+    "revision": "c9eca7b026199d57b371",
+    "url": "https://commergnat.com/css/chunk-7e559ca1.7edb6262.css"
   },
   {
     "revision": "8f9b36d09c87e95d0d8cc27ec74aca49",
@@ -156,24 +156,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "8146bec4bdd91b54a62baab9e102e3f5",
+    "revision": "49d94b09e82d8df54f43ec0164c6c2ae",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "1eeb754d322a89f61c69",
-    "url": "https://commergnat.com/js/app.fdca3f83.js"
+    "revision": "a1cd2dd4f215248c745d",
+    "url": "https://commergnat.com/js/app.1ac3118c.js"
   },
   {
-    "revision": "93dee5ec326480559ecb",
-    "url": "https://commergnat.com/js/chunk-49e79169.bfc3fd6a.js"
+    "revision": "d77f86bc50f25b859dbd",
+    "url": "https://commergnat.com/js/chunk-4d2d9c55.c6c80959.js"
   },
   {
-    "revision": "f9e944a40b59ced3eed8",
-    "url": "https://commergnat.com/js/chunk-77da6372.e0e3abf9.js"
+    "revision": "04292d8863f928001042",
+    "url": "https://commergnat.com/js/chunk-54995bd3.d1a96cd6.js"
   },
   {
-    "revision": "c19754e91f436eca806a",
-    "url": "https://commergnat.com/js/chunk-c1ded1b6.7b7eaa53.js"
+    "revision": "c9eca7b026199d57b371",
+    "url": "https://commergnat.com/js/chunk-7e559ca1.4ecef0dc.js"
   },
   {
     "revision": "2911987fa01aebec3be2",
