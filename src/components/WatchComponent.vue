@@ -45,6 +45,10 @@ export default defineComponent({
   width: 100%;
   max-width: 300px;
   margin-bottom: calc( var(--line-height) * 4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .watch-component__header {
@@ -61,6 +65,7 @@ export default defineComponent({
   padding-top: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 </style>

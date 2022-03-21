@@ -8,8 +8,8 @@
 
   --unit: 20px;
 
-  --line-height:  1rem;
-  --font-size:    0.80rem;
+  --line-height:  1.15rem;
+  --font-size:    0.8rem;
 
   --gutter:        1rem;
   --gutter--half: .5rem;
@@ -21,4 +21,7 @@
   --max-width:      700px;
 
   --section-padding-top_bottom: calc( var(--gutter) * 4 );
+
+  --ui-border-width: 1px;
+  --ui-border-color: var(--color--main);
 }

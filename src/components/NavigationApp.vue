@@ -60,11 +60,12 @@ export default defineComponent({
   },
 
   mounted() {
+    const scrollValueToHideNav = 100;
     let holdScrollValue = 0
 
     window.addEventListener("scroll", (e) => {
-      if      (holdScrollValue < window.scrollY) this.hide = true
-      else if (holdScrollValue > window.scrollY) this.hide = false
+      if      (window.scrollY > scrollValueToHideNav && holdScrollValue < window.scrollY) this.hide = true
+      else if (holdScrollValue > window.scrollY && window.scrollY > scrollValueToHideNav) this.hide = false
       holdScrollValue = window.scrollY
     })
   },

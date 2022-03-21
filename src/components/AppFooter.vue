@@ -15,7 +15,7 @@
       </div>
 
       <div>
-        © 2021 tous droits réservés.
+        © 2022 tous droits réservés.
       </div>
     </div>
 

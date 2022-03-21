@@ -148,7 +148,7 @@ export interface IValidateData {
   width: auto;
   flex-shrink: 0;
   margin-left: var(--gutter--half);
-  background: black;
+  background: var(--ui-border-color);
   border-radius: 100%;
   border: none;
 

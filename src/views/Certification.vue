@@ -18,7 +18,7 @@
         v-if="certificationData === undefined || certificationData?.hasOwnProperty('error')"
         class="v-certification__form lo-g-gutter--half"
     >
-      <h2>Veuillez vous identifier pour accéder à cette page</h2>
+      <h3>Veuillez vous identifier pour accéder à cette page</h3>
       <form-locked-page
           @validate="formValidate"
       ></form-locked-page>

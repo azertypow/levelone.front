@@ -5,9 +5,9 @@
     <div
         class="v-section-talents__background"
     >
-      <img alt="" class="v-section-talents__background__top"           src="../assets/section_specification/background-specification__top.svg">
-      <img alt="" class="v-section-talents__background__bottom-left"   src="../assets/section_specification/background-specification__left.svg">
-      <img alt="" class="v-section-talents__background__bottom-right"  src="../assets/section_specification/background-specification__right.svg">
+      <img alt="" class="v-section-talents__background__top lo-section-bg--top"           src="../assets/section_specification/background-specification__top.svg">
+      <img alt="" class="v-section-talents__background__bottom-left lo-section-bg--left"   src="../assets/section_specification/background-specification__left.svg">
+      <img alt="" class="v-section-talents__background__bottom-right lo-section-bg--right"  src="../assets/section_specification/background-specification__right.svg">
     </div>
 
     <subsection
@@ -68,6 +68,8 @@ export default defineComponent({
     display: block;
     padding-top: calc(var(--line-height) / 2);
     padding-bottom: calc(var(--line-height) / 2);
+    font-size: calc( var(--font-size) * 1.5 );
+    line-height: calc( var(--font-size) * 1.5 );
   }
 }
 
@@ -77,23 +79,6 @@ export default defineComponent({
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -10;
 }
-
-.v-section-talents__background__top {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-.v-section-talents__background__bottom-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.v-section-talents__background__bottom-left {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 </style>
