@@ -18,7 +18,7 @@ button,
   }
 }
 
-input {
+input, textarea {
   height: auto;
   padding: calc( var(--line-height) / 2 );
   line-height: var(--line-height);
@@ -28,6 +28,7 @@ input {
   background: white;
   border: solid var(--ui-border-width) var(--ui-border-color);
   border-radius: 20px;
+  resize: none;
 }
 
 .lo-section-bg--top {
@@ -54,3 +55,76 @@ input {
   transform-origin: bottom left;
 }
 
+
+.lo-view__header {
+  position: relative;
+  padding-top:    var(--section-padding-top_bottom);
+  padding-bottom: var(--section-padding-top_bottom);
+  background-color: var(--color--grey);
+  border-bottom: solid 1px var(--color--main);
+
+  h1 {
+    color: var(--color--main);
+  }
+
+  .lo-view__header__ui--left,
+  .lo-view__header__ui--right {
+    top: 0;
+    height: 100%;
+    width: auto;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+  }
+  .lo-view__header__ui--left   {left: 0}
+  .lo-view__header__ui--right  {right: 0}
+}
+
+.lo-view__header__txt,
+.lo-view__form {
+  text-align: center;
+  max-width: var(--max-width--lg);
+  margin: auto;
+}
+
+.lo-form {
+  margin: auto;
+  width: 100%;
+  max-width: 30em;
+
+  > * {
+    width: 100%;
+    display: block;
+    margin-top: var(--gutter--half);
+    margin-bottom: var(--gutter--half);
+    box-sizing: border-box;
+
+    > label {
+      font-weight: 700;
+      margin-top: var(--gutter);
+      margin-bottom: var(--gutter--half);
+
+      > span {
+        font-weight: 500;
+      }
+    }
+
+    > label, input, textarea {
+      text-align: left;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .lo-form__validate {
+    font-weight: 700;
+  }
+
+  .lo-form__label--is-required {
+    &:after {
+      content: " *";
+      color: var(--color-danger);
+    }
+  }
+}

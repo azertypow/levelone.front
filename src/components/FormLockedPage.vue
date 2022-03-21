@@ -1,6 +1,6 @@
 <template>
   <form
-      class="v-form-locked-page lo-g-box lo-g-box--centred lo-g-gutter--half lo-g-row"
+      class="v-form-locked-page lo-form lo-g-box lo-g-box--centred lo-g-gutter--half lo-g-row"
       ref="FormElement"
       autocomplete="off"
   >
@@ -34,7 +34,7 @@
     </div>
 
     <button
-        class="v-form-locked-page__validate"
+        class="v-form-locked-page__validate lo-form__validate"
         @click="validateForm"
     ><span>{{ buttonText.length > 0 ? buttonText : `accéder aux composant de la montre ${form_id}` }}&nbsp;</span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></button>
   </form>
@@ -118,19 +118,6 @@ export interface IValidateData {
 .v-form-locked-page {
   opacity: 0;
   transition: opacity ease-in-out 500ms;
-  margin: auto;
-  width: 100%;
-  max-width: 30em;
-
-  > * {
-    width: 100%;
-    display: block;
-    margin: var(--gutter--half);
-  }
-}
-
-.v-form-locked-page__validate {
-  font-weight: 700;
 }
 
 .v-form-locked-page__passwords--box {

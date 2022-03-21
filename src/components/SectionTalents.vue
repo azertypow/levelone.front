@@ -60,6 +60,7 @@ export default defineComponent({
   position: relative;
 
   p {
+    font-size: calc( var(--font-size) * 3);
     color: var(--color--main);
     margin-top: calc( var(--line-height) * 4 );
   }

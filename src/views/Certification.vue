@@ -2,21 +2,20 @@
   <div class="v-certification">
 
 <!--    header -->
-    <div  class="v-certification__intro">
-      <div class="v-certification__intro__txt lo-remove-child-margin">
+    <div  class="v-certification__intro lo-view__header">
+      <div class="v-certification__intro__txt lo-view__header__txt lo-remove-child-margin">
         <h1>Bienvenue</h1>
         <p>Retrouvez dans cet espace sur-mesure les informations personnalisées, relatives à votre montre Nicolas&nbsp;Commergnat.</p>
-        <img class="v-certification__intro__ui--left" src="img/ornement-left.svg" alt="">
-        <img class="v-certification__intro__ui--right" src="img/ornement-right.svg" alt="">
+        <img class="lo-view__header__ui--left" src="img/ornement-left.svg" alt="">
+        <img class="lo-view__header__ui--right" src="img/ornement-right.svg" alt="">
       </div>
-
     </div>
 
 <!--    unconnected-->
 
     <div
         v-if="certificationData === undefined || certificationData?.hasOwnProperty('error')"
-        class="v-certification__form lo-g-gutter--half"
+        class="v-certification__form lo-view__form lo-g-gutter--half"
     >
       <h3>Veuillez vous identifier pour accéder à cette page</h3>
       <form-locked-page
@@ -195,45 +194,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  color: var(--color--main);
-}
-
 
 .v-certification {
   min-height: calc( 100vh - var(--navigation-height) - var(--footer-height) );
 }
 
 ///// intro and form to unlock page
-
-.v-certification__intro {
-  position: relative;
-  padding-top:    var(--section-padding-top_bottom);
-  padding-bottom: var(--section-padding-top_bottom);
-  background-color: var(--color--grey);
-  border-bottom: solid 1px var(--color--main);
-}
-
-.v-certification__intro__txt,
-.v-certification__form {
-  text-align: center;
-  max-width: var(--max-width--lg);
-  margin: auto;
-}
-
-.v-certification__intro__ui--left,
-.v-certification__intro__ui--right {
-  top: 0;
-  height: 100%;
-  width: auto;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-  position: absolute;
-}
-.v-certification__intro__ui--left   {left: 0}
-.v-certification__intro__ui--right  {right: 0}
-
 .v-certification__clearData {
   position: absolute;
   top:    var(--gutter);

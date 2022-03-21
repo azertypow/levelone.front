@@ -11,11 +11,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Log',
     component: () => import('../views/Log.vue'),
   },
-  // {
-  //   path: '/pre-order',
-  //   name: 'PreOrder',
-  //   component: () => import('../views/PreOrder.vue'),
-  // },
+  {
+    path: '/pre-order',
+    name: 'PreOrder',
+    component: () => import('../views/PreOrder.vue'),
+  },
   {
     path: '/certification',
     name: 'Certification',
