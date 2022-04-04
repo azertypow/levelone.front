@@ -164,18 +164,30 @@ export default defineComponent({
 
 .v-hour-animation__container {
   position: absolute;
-  width: 100%;
+  width: auto;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media (min-aspect-ratio: 1920/1330) {// image width / img height + navigation height * 2
+    width: 100%;
+    height: auto;
+  }
 }
 
 img {
   position: absolute;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   top: 0;
   left: 0;
+
+
+  @media (min-aspect-ratio: 1920/1330) {// image width / img height + navigation height * 2
+    width: 100%;
+    height: auto;
+  }
 }
 
 img:first-child {
