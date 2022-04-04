@@ -169,6 +169,7 @@ export default defineComponent({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-bottom: solid var(--ui-border-width) var(--ui-border-color);
 
   @media (min-aspect-ratio: 1920/1330) {// image width / img height + navigation height * 2
     width: 100%;
