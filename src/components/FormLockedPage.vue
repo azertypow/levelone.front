@@ -62,18 +62,7 @@ export default defineComponent({
     }
   },
 
-  mounted() {
-    this.$nextTick(() => {
-      window.setTimeout(() => {
-        if (this.$refs.FormElement instanceof HTMLFormElement) {
-          this.form_id = ""
-          this.form_passsword = ""
-          this.$refs.FormElement.reset()
-          this.$refs.FormElement.style.opacity = "1"
-        }
-      }, 1000)
-    })
-  },
+  mounted() {},
 
   components: {
   },
@@ -116,8 +105,16 @@ export interface IValidateData {
 
 <style lang="scss" scoped>
 .v-form-locked-page {
-  opacity: 0;
-  transition: opacity ease-in-out 500ms;
+
+  @media (pointer: fine) {
+    transition: opacity ease-in-out 250ms;
+    opacity: .5;
+
+    &:hover,
+    &:focus-within {
+      opacity: 1;
+    }
+  }
 }
 
 .v-form-locked-page__passwords--box {
