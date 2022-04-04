@@ -208,8 +208,8 @@ export default defineComponent({
 
 // specifications
 .v-certification__specification {
-  padding-top:    var(--section-padding-top_bottom);
-  padding-bottom: var(--section-padding-top_bottom);
+  padding-top:    var(--section-padding-bottom);
+  padding-bottom: var(--section-padding-bottom);
   position: relative;
 
   > *:first-child {
@@ -244,7 +244,7 @@ export default defineComponent({
 // components
 .v-certification__components {
   padding-top: 0;
-  padding-bottom: var(--section-padding-top_bottom);
+  padding-bottom: var(--section-padding-bottom);
 }
 
 .v-certification__components__header {
@@ -260,7 +260,7 @@ export default defineComponent({
 }
 
 .v-certification__components__header__line {
-  padding-bottom:    var(--section-padding-top_bottom);
+  padding-bottom:    var(--section-padding-bottom);
   border-top: solid 1px var(--color--grey);
   width: 100%;
 }

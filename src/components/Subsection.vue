@@ -132,8 +132,8 @@ export default defineComponent({
 .v-subsection {
   margin: auto;
   max-width:      var(--max-width);
-  padding-top:    var(--section-padding-top_bottom);
-  padding-bottom: var(--section-padding-top_bottom);
+  padding-top:    var(--section-padding-top);
+  padding-bottom: var(--section-padding-bottom);
 }
 
 .v-subsection__content__title {

@@ -21,7 +21,7 @@
         >
 
         <div
-            class="v-section-specification__slides__content"
+            class="v-section-specification__slides__content lo-remove-child-margin"
             v-html="slide.content"
         ></div>
 
