@@ -18,3 +18,17 @@ router.beforeEach((to, from, next) => {
 createApp(App).use(router).use(store, key).mount('#app')
 
 store.commit("changeAppConnection")
+
+document.addEventListener('click', e => {
+
+  if(! (e.target instanceof HTMLElement) ) return
+
+  const origin = e.target.closest(`a`)
+
+  if(! origin) return
+
+  if(location.hostname === origin.hostname) return
+
+  e.preventDefault()
+  window.open(origin.href,'_blank');
+});
