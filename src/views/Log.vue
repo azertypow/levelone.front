@@ -153,6 +153,13 @@ export default defineComponent({
   height: 75px;
   position: relative;
   margin: auto;
+
+  @media (min-height: 400px) {
+    position: absolute;
+    top: calc(100px - 33.33333vh);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 </style>
