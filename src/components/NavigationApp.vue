@@ -3,20 +3,37 @@
 
     <div class="v-navigation-app__top lo-g-row">
 
-      <div
-          class="v-navigation-app__top__date lo-g-gutter"
-      >
-        {{date}}
+      <div>
+        <div
+            class="v-navigation-app__top__date"
+        >
+          {{date}}
+        </div>
       </div>
 
-      <router-link
-          class="v-navigation-app__top__logo-link"
-          :to="{path: '/', hash: '#v-home__main'}"
-      >
-        <img
-            class="v-navigation-app__top__logo"
-            src="/img/NC_logo.svg" alt="logo">
-      </router-link>
+      <div>
+        <router-link
+            class="v-navigation-app__top__logo-link"
+            :to="{path: '/', hash: '#v-home__main'}"
+        >
+          <img
+              class="v-navigation-app__top__logo"
+              src="/img/NC_logo.svg" alt="logo">
+        </router-link>
+      </div>
+
+      <div>
+        <div
+            @click="toggleMenu"
+            class="v-navigation-app__top__toggle-menu"
+        >
+          <div>
+            <template v-if="store.state.menuOpen" >fermer le menu</template>
+            <template v-else                      >menu</template>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div
@@ -37,6 +54,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import {LocationAsPath} from "vue-router"
+import {useStore} from "vuex"
+import {key} from "@/store"
 
 export default defineComponent({
   name: 'NavigationApp',
@@ -56,6 +75,8 @@ export default defineComponent({
       })(),
 
       hide: false,
+
+      store: useStore(key)
     }
   },
 
@@ -68,6 +89,12 @@ export default defineComponent({
       else if (holdScrollValue > window.scrollY && window.scrollY > scrollValueToHideNav) this.hide = false
       holdScrollValue = window.scrollY
     })
+  },
+
+  methods: {
+    toggleMenu() {
+      this.store.commit("toggleMenu")
+    }
   },
 
 });
@@ -84,13 +111,35 @@ export default defineComponent({
   border-bottom: solid 1px var(--color--main);
   background: var(--color--light);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @media all and (min-width: 950px) {
+    flex-direction: row;
+  }
+
+  > div {
+    width: 33.33333%;
+    padding-left: var(--gutter--half);
+    padding-right: var(--gutter--half);
+  }
+}
+
+.v-navigation-app__top__toggle-menu {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  user-select: none;
+
+  @media all and (min-width: 950px) {
+    display: none;
+  }
 }
 
 .v-navigation-app__top__date {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
 }
 
 .v-navigation-app__top__logo-link {
@@ -112,6 +161,18 @@ export default defineComponent({
   background: var(--color--light);
   z-index: 0;
   opacity: 1;
+  display: none;
+
+  .menu-open & {
+    display: flex;
+    height: calc(100vh - var(--navigation-height));
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: calc( var(--font-size) * 2);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 
   a {
     text-decoration: none;
@@ -120,6 +181,10 @@ export default defineComponent({
   &.hide {
     transform: translateY(-100%);
     opacity: 0;
+  }
+
+  @media all and (min-width: 950px) {
+    display: flex;
   }
 }
 </style>

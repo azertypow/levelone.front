@@ -72,10 +72,13 @@ input, textarea {
     top: 0;
     height: 100%;
     width: auto;
+    max-width: 33.33333%;
     display: block;
     user-select: none;
     pointer-events: none;
     position: absolute;
+    object-fit: contain;
+    object-position: top;
   }
   .lo-view__header__ui--left   {left: 0}
   .lo-view__header__ui--right  {right: 0}

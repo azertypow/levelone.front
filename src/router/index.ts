@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import {store} from "@/store"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -27,11 +28,17 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
   scrollBehavior (to, from, savedPosition) {
+    store.commit("closeMenu")
     if (to.hash) {
       return {
         el: to.hash,
         behavior: "smooth",
         top: to.hash === '#v-home__main' ? +200 : +100,
+      }
+    } else {
+      return {
+        top: 0,
+        behavior: "smooth",
       }
     }
   },

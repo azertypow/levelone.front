@@ -18,7 +18,9 @@
         :arrowNav="false"
         :titleVariant="true"
     >
-      <div v-html="talents.content" ></div>
+      <div
+          class="lo-g-gutter--half"
+          v-html="talents.content" ></div>
     </subsection>
   </section>
 </template>
@@ -71,6 +73,9 @@ export default defineComponent({
     padding-bottom: calc(var(--line-height) / 2);
     font-size: calc( var(--font-size) * 1.5 );
     line-height: calc( var(--font-size) * 1.5 );
+    &:before {
+      content: none;
+    }
   }
 }
 

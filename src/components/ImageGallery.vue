@@ -158,11 +158,11 @@ export default defineComponent({
   z-index: 10;
 
   &.v-image-gallery__ui--left {
-    left: 0;
+    left: var(--gutter--half);
   }
 
   &.v-image-gallery__ui--right {
-    right: 0;
+    right: var(--gutter--half);
   }
 }
 

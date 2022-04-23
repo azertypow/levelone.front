@@ -9,6 +9,7 @@ export interface AppState {
   appUnlocked:       IValidateData | null
   componentUnlocked: IValidateData | null
   homeData:          IApiResonse_home | IApiResponse_locked | null
+  menuOpen:          boolean
 }
 
 export const key: InjectionKey<Store<AppState>> = Symbol()
@@ -19,6 +20,7 @@ export const store = createStore<AppState>({
     appUnlocked: null,
     componentUnlocked: null,
     homeData: null,
+    menuOpen: false,
   },
   mutations: {
 
@@ -35,6 +37,14 @@ export const store = createStore<AppState>({
       }) as IApiResponse_locked | IApiResonse_home
 
       if(state.homeData === null ? 'waiting' : 'pageLocked' in state.homeData ? 'lock' : "unlock") await router.push({name: 'Home'})
+    },
+
+    toggleMenu(state) {
+      state.menuOpen = !state.menuOpen
+    },
+
+    closeMenu(state) {
+      state.menuOpen = false
     },
 
   },

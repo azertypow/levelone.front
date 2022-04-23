@@ -19,6 +19,10 @@ createApp(App).use(router).use(store, key).mount('#app')
 
 store.commit("changeAppConnection")
 
+window.addEventListener("resize", () => {
+  store.commit('closeMenu')
+})
+
 document.addEventListener('click', e => {
 
   if(! (e.target instanceof HTMLElement) ) return

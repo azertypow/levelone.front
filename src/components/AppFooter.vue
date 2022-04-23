@@ -36,8 +36,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .app-footer {
   width: 100%;
-  height: calc(var(--line-height) * 2);
   border-top: solid 1px var(--color--main);
+  padding-top: var(--gutter);
+  padding-bottom: var(--gutter--half);
 }
 
 .app-footer__content {
@@ -48,5 +49,21 @@ export default defineComponent({
   justify-content: space-around;
   height: 100%;
   align-items: center;
+  flex-wrap: wrap;
+
+  > * {
+    padding-left: var(--gutter--half);
+    padding-right: var(--gutter--half);
+    box-sizing: border-box;
+    width: 100%;
+
+    @media all and (min-width: 600px) {
+      width: 50%;
+    }
+
+    @media all and (min-width: 950px) {
+      width: auto;
+    }
+  }
 }
 </style>

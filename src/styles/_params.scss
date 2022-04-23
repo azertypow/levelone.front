@@ -15,7 +15,7 @@
   --gutter:        1rem;
   --gutter--half: .5rem;
 
-  --navigation-height: 8.25rem;
+  --navigation-height: 5rem;
   --footer-height: 2rem;
 
   --max-width--lg:  1200px;
@@ -26,4 +26,8 @@
 
   --ui-border-width: 1px;
   --ui-border-color: var(--color--main);
+
+  @media all and (min-width: 950px) {
+    --navigation-height: 8.25rem;
+  }
 }

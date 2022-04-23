@@ -4,7 +4,10 @@
     <section-main
         v-if="intro"
         id="v-home__main"
-    ><div v-html="intro.content"></div></section-main>
+    ><div
+        class="lo-g-gutter--half"
+        v-html="intro.content"
+    ></div></section-main>
 
     <section-specification
         id="v-home__specification"

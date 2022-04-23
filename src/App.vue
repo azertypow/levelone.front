@@ -5,7 +5,13 @@
   >
 
   </div>
-  <div class="v-app" v-else>
+  <div
+      v-else
+      class="v-app"
+      :class="{
+        'menu-open': store.state.menuOpen,
+      }"
+  >
 
     <div
         v-if="!isLogView"

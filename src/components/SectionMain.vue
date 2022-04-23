@@ -1,9 +1,7 @@
 <template>
-  <section class="v-section-main"
-       id="v-section-main"
-  >
+  <section class="v-section-main">
     <div
-        class="v-section-main__gallery"
+        class="v-section-main__gallery v-section-main__gallery--intro"
     >
       <hour-animation/>
     </div>
@@ -79,7 +77,11 @@ export default defineComponent({
 
 .v-section-main__gallery {
   width: 100%;
-  height: calc( 100vh - 8rem);
+  height: calc( 100vh - 5rem);
+}
+
+.v-section-main__gallery.v-section-main__gallery--intro {
+  height: calc( 100vh - 8rem)
 }
 
 .v-section-main__txt {
@@ -92,6 +94,8 @@ export default defineComponent({
   left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 </style>

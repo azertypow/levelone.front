@@ -67,8 +67,9 @@ export default defineComponent({
 
 .v-section-bio__slides {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 
   > * {
     box-sizing: border-box;
@@ -79,8 +80,19 @@ export default defineComponent({
   }
 
   &.half {
-    > * {
+
+    > *:first-child {
       width: 50%;
+    }
+    > * {
+      width: 100%;
+    }
+
+    @media all and (min-width: 950px) {
+      > *:first-child,
+      > * {
+        width: 50%;
+      }
     }
   }
 }
