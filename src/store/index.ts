@@ -10,6 +10,7 @@ export interface AppState {
   componentUnlocked: IValidateData | null
   homeData:          IApiResonse_home | IApiResponse_locked | null
   menuOpen:          boolean
+  showPageTransition: boolean
 }
 
 export const key: InjectionKey<Store<AppState>> = Symbol()
@@ -21,11 +22,20 @@ export const store = createStore<AppState>({
     componentUnlocked: null,
     homeData: null,
     menuOpen: false,
+    showPageTransition: false,
   },
   mutations: {
 
     changeCertificationConnection (state, data: IValidateData) {
       state.componentUnlocked = data
+    },
+
+    runPageTransition(state) {
+      state.showPageTransition = true
+
+      window.setTimeout(() => {
+        state.showPageTransition = false
+      }, 3000)
     },
 
     async changeAppConnection (state, data: IValidateData) {

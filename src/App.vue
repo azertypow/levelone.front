@@ -1,4 +1,11 @@
 <template>
+
+  <transition name="transition">
+    <page-transition
+        v-if="store.state.showPageTransition"
+    ></page-transition>
+  </transition>
+
   <div
       v-if="store.getters.appLockStatus === 'waiting'"
       class="v-app v-app__loader"
@@ -34,6 +41,7 @@ import NavigationApp from "@/components/NavigationApp.vue"
 import AppFooter from "@/components/AppFooter.vue";
 import {useStore} from "vuex"
 import {key} from "@/store"
+import PageTransition from "@/components/PageTransition.vue"
 
 export default defineComponent({
   name: 'App',
@@ -45,6 +53,7 @@ export default defineComponent({
   },
 
   components: {
+    PageTransition,
     AppFooter,
     NavigationApp
   },

@@ -7,11 +7,26 @@ import {key, store} from "@/store"
 import "./styles/_main.scss"
 
 router.beforeEach((to, from, next) => {
-  if(store.getters.appLockStatus === 'unlock') next()
+
+  if(store.state.showPageTransition) return // wait end of page transition before go to other page
+
+  if(store.getters.appLockStatus === 'unlock') {
+
+    if(from.name === to.name) next()
+
+    else {
+      store.commit("runPageTransition")
+      // next()
+      window.setTimeout(next, 500)
+    }
+
+  }
   else {
     if(to.name !== 'Log') router.push({name: 'Log'})
     else next()
   }
+
+  store.commit("closeMenu")
 
 })
 

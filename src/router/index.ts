@@ -28,7 +28,6 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
   scrollBehavior (to, from, savedPosition) {
-    store.commit("closeMenu")
     if (to.hash) {
       return {
         el: to.hash,
