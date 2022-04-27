@@ -37,6 +37,7 @@ input, textarea {
   left: 50%;
   transform: translateX(-50%) scale(.5, .5);
   transform-origin: top center;
+  max-width: 200%;
 }
 
 .lo-section-bg--right {
@@ -45,6 +46,7 @@ input, textarea {
   right: 0;
   transform: scale(.5, .5);
   transform-origin: bottom right;
+  max-width: 100%;
 }
 
 .lo-section-bg--left {
@@ -53,6 +55,7 @@ input, textarea {
   left: 0;
   transform: scale(.5, .5);
   transform-origin: bottom left;
+  max-width: 100%;
 }
 
 
