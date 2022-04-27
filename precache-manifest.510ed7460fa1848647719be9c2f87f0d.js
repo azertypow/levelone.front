@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a87776045d8cdd7e322",
-    "url": "https://commergnat.com/css/app.f886d5fd.css"
+    "revision": "b5ed754cf1778b92b79b",
+    "url": "https://commergnat.com/css/app.d0bc2df3.css"
   },
   {
     "revision": "fd2ac7b2779e62a5c44d",
@@ -164,11 +164,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "c7354faa737c4606077b998491971731",
+    "revision": "96be934ab1ad5f5e335f10f8e5855481",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "1a87776045d8cdd7e322",
+    "revision": "b5ed754cf1778b92b79b",
     "url": "https://commergnat.com/js/app.4567701d.js"
   },
   {
