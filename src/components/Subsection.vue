@@ -5,10 +5,10 @@
            }"
   >
     <div
-         class="v-subsection__content v-subsection__content--centred lo-remove-child-margin"
+         class="v-subsection__content v-subsection__content--centred lo-remove-child-margin lo-g-gutter--half"
     >
       <h1
-          class="v-subsection__content__title"
+          class="v-subsection__content__title lo-g-gutter--half"
           :class="{
             'title-variant': titleVariant
           }"
@@ -155,6 +155,7 @@ export default defineComponent({
   li {
     text-decoration: none;
     display: block !important;
+    padding-left: 0;
   }
 }
 

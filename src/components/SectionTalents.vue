@@ -72,7 +72,7 @@ export default defineComponent({
     padding-top: calc(var(--line-height) / 2);
     padding-bottom: calc(var(--line-height) / 2);
     font-size: calc( var(--font-size) * 1.5 );
-    line-height: calc( var(--font-size) * 1.5 );
+    line-height: calc( var(--line-height) * 1.5 );
     &:before {
       content: none;
     }

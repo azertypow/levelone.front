@@ -6,8 +6,8 @@
       <div class="v-pre-order__intro__txt lo-view__header__txt lo-remove-child-margin">
         <h1>Pré-commande</h1>
         <p>Si vous désirez aquérir une montre Nicolas Commergnat</p>
-        <img class="lo-view__header__ui--left" src="img/ornement-left.svg" alt="">
-        <img class="lo-view__header__ui--right" src="img/ornement-right.svg" alt="">
+<!--        <img class="lo-view__header__ui&#45;&#45;left" src="img/ornement-left.svg" alt="">-->
+<!--        <img class="lo-view__header__ui&#45;&#45;right" src="img/ornement-right.svg" alt="">-->
       </div>
     </div>
 

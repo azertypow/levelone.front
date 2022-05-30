@@ -2,7 +2,7 @@
   <div class="v-hour-animation">
     <div class="v-hour-animation__container">
       <img ref="background" src="../assets/intro/background.jpg" alt="background">
-      <img ref="watch"      src="../assets/intro/watch.png"      alt="element">
+<!--      <img ref="watch"      src="../assets/intro/watch.png"      alt="element">-->
       <img ref="hour"       src="../assets/intro/hour.png"       alt="hour">
       <img ref="minute"     src="../assets/intro/minute.png"     alt="minute">
       <img ref="second"     src="../assets/intro/second.png"     alt="second">

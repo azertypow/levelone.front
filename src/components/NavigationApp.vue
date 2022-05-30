@@ -1,13 +1,23 @@
 <template>
-  <nav class="v-navigation-app">
+  <nav
+      class="v-navigation-app"
+      :class="{'hide': hide}"
+  >
 
-    <div class="v-navigation-app__top lo-g-row">
+    <div
+        class="v-navigation-app__top lo-g-row"
+    >
 
       <div>
         <div
             class="v-navigation-app__top__date"
         >
           {{date}}
+        </div>
+        <div
+            class="v-navigation-app__top__date-mobile"
+        >
+          {{dateMobile}}
         </div>
       </div>
 
@@ -38,7 +48,6 @@
 
     <div
         class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row"
-        :class="{'hide': hide}"
     >
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__main'}">Level One</router-link>
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__bio'}">Biographie</router-link>
@@ -74,6 +83,15 @@ export default defineComponent({
         })
       })(),
 
+      dateMobile: (() => {
+        const date = new Date()
+        const day   = date.toLocaleDateString("fr-FR", {day:    "2-digit",})
+        const month = date.toLocaleDateString("fr-FR", {month:  "2-digit",})
+        const year  = date.toLocaleDateString("fr-FR", {year:   "2-digit",})
+
+        return `${day}.${month}.${year}`
+      })(),
+
       hide: false,
 
       store: useStore(key)
@@ -104,6 +122,7 @@ export default defineComponent({
 .v-navigation-app {
   position: relative;
   width: 100%;
+  background-color: var(--color--light);
 }
 
 .v-navigation-app__top {
@@ -140,6 +159,18 @@ export default defineComponent({
 
 .v-navigation-app__top__date {
   position: relative;
+  display: none;
+  @media all and (min-width: 950px) {
+    display: block;
+  }
+}
+
+.v-navigation-app__top__date-mobile {
+  position: relative;
+  display: block;
+  @media all and (min-width: 950px) {
+    display: none;
+  }
 }
 
 .v-navigation-app__top__logo-link {
@@ -157,7 +188,6 @@ export default defineComponent({
   position: relative;
   border-bottom: solid 1px var(--color--main);
   transform: translateY(0);
-  transition: transform 250ms, opacity 350ms;
   background: var(--color--light);
   z-index: 0;
   opacity: 1;
@@ -170,21 +200,44 @@ export default defineComponent({
     align-items: center;
     justify-content: space-around;
     font-size: calc( var(--font-size) * 2);
-    opacity: 1 !important;
-    transform: translateY(0) !important;
   }
 
   a {
     text-decoration: none;
   }
 
-  &.hide {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
   @media all and (min-width: 950px) {
     display: flex;
   }
 }
+
+.v-navigation-app {
+  transition: transform 500ms ease-in-out;
+  transform: translateY(0);
+
+  .v-navigation-app__top {
+    transition: opacity 250ms 250ms ease-in-out;
+    opacity: 1;
+  }
+
+  .v-navigation-app__bottom {
+    transition: transform 500ms ease-in-out;
+    transform: translateY(0);
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+
+    .v-navigation-app__top {
+      transition: opacity 250ms ease-in-out;
+      opacity: 0;
+    }
+
+    .v-navigation-app__bottom {
+      transition: transform 500ms ease-in-out;
+      transform: translateY(100%);
+    }
+  }
+}
+
 </style>

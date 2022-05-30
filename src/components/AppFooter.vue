@@ -1,5 +1,5 @@
 <template>
-  <div class="app-footer">
+  <div class="app-footer lo-g-gutter--half">
 
     <div class="app-footer__content">
       <div>
@@ -56,6 +56,8 @@ export default defineComponent({
     padding-right: var(--gutter--half);
     box-sizing: border-box;
     width: 100%;
+    text-align: center;
+    font-size: .7rem;
 
     @media all and (min-width: 600px) {
       width: 50%;
@@ -63,6 +65,8 @@ export default defineComponent({
 
     @media all and (min-width: 950px) {
       width: auto;
+      text-align: left;
+      font-size: inherit;
     }
   }
 }
