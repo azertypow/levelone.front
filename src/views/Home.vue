@@ -9,12 +9,16 @@
         v-html="intro.content"
     ></div></section-main>
 
-    <section-specification
+    <section-bio
+        v-if="('specification' in store.state.homeData)"
         id="v-home__specification"
+        :dataSlide="store.state.homeData.specification"
     />
 
     <section-bio
+        v-if="('biographie' in store.state.homeData)"
         id="v-home__bio"
+        :dataSlide="store.state.homeData.biographie"
     />
 
     <section-talents

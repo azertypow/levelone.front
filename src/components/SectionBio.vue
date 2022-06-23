@@ -1,13 +1,10 @@
 <template>
-  <section class="v-section-bio"
-       id="v-section-bio"
-  >
+  <section class="v-section-bio">
     <subsection
-        title="Biographie"
-        v-if="biographie !== null"
+        :title="dataSlide.title"
     >
       <div
-          v-for="slide of biographie.slides"
+          v-for="slide of dataSlide.slides"
           class="v-section-bio__slides"
           :class="{half: Object.keys( slide.image ).length > 0}"
       >
@@ -31,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import {defineComponent, PropType} from 'vue';
 import Subsection from "@/components/Subsection.vue"
 import {useStore} from "vuex"
 import {key} from "@/store"
@@ -43,18 +40,14 @@ export default defineComponent({
     Subsection
   },
 
-  data() {
-    return {
-      store: useStore(key),
+  props: {
+    dataSlide: {
+      require: true,
+      type: Object as PropType<IApiResonse_home__section>,
     }
   },
 
   computed: {
-    biographie(): IApiResonse_home__section | null {
-      if(this.store.state.homeData === null) return null
-      if ('biographie' in this.store.state.homeData) return this.store.state.homeData.biographie
-      return null
-    }
   }
 
 });
