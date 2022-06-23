@@ -32,9 +32,8 @@
 import { defineComponent } from 'vue';
 import SectionMain from "@/components/SectionMain.vue"
 import SectionBio from "@/components/SectionBio.vue"
-import SectionSpecification from "@/components/SectionSpecification.vue"
 import SectionTalents from "@/components/SectionTalents.vue"
-import {apiGet, IApiResonse_home__section} from "@/global/api"
+import {IApiResonse_home__section} from "@/global/api"
 import {useStore} from "vuex"
 import {key} from "@/store"
 
@@ -42,7 +41,6 @@ export default defineComponent({
   name: 'Home',
   components: {
     SectionTalents,
-    SectionSpecification,
     SectionBio,
     SectionMain
   },
