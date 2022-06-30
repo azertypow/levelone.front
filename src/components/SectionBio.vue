@@ -17,7 +17,7 @@
         >
 
         <div
-            class="v-section-bio__slides__content"
+            class="v-section-bio__slides__content lo-remove-child-margin"
             v-html="slide.content"
         ></div>
 
@@ -61,7 +61,7 @@ export default defineComponent({
 .v-section-bio__slides {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: start;
   justify-content: center;
 
   > * {
