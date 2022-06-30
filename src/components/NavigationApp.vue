@@ -204,6 +204,10 @@ export default defineComponent({
 
   a {
     text-decoration: none;
+
+    &:hover {
+      color: var(--color--main)
+    }
   }
 
   @media all and (min-width: 950px) {
