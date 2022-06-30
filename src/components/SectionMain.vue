@@ -12,9 +12,9 @@
       <div
           class="v-section-main__txt__background"
       >
-        <img alt="" class="v-section-main__txt__background__top lo-section-bg--top"          src="../assets/section_main/home-section_main-top.png">
-        <img alt="" class="v-section-main__txt__background__bottom-right lo-section-bg--right" src="../assets/section_main/home-section_main-bottom-right.png">
-        <img alt="" class="v-section-main__txt__background__bottom-left lo-section-bg--left"  src="../assets/section_main/home-section_main-bottom-left.png">
+        <img alt="" ref="top"   :style="style.top" class="v-section-main__txt__background__top lo-section-bg--top"          src="../assets/section_main/home-section_main-top.png">
+        <img alt="" ref="right" :style="style.right" class="v-section-main__txt__background__bottom-right lo-section-bg--right" src="../assets/section_main/home-section_main-bottom-right.png">
+        <img alt="" ref="left"  :style="style.left" class="v-section-main__txt__background__bottom-left lo-section-bg--left"  src="../assets/section_main/home-section_main-bottom-left.png">
       </div>
       <subsection
           style="text-align: center"
@@ -56,7 +56,33 @@ export default defineComponent({
   data() {
     return {
       store: useStore(key),
+      style: {
+        top: {},
+        right: {},
+        left: {},
+      }
     }
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('scroll', () => {
+        this.style.top    = this.computedStyle(this.$refs.top)
+        this.style.right  = this.computedStyle(this.$refs.right)
+        this.style.left   = this.computedStyle(this.$refs.left)
+      })
+    })
+  },
+
+  methods: {
+    computedStyle(el: unknown): {
+      opacity: number
+    } {
+      if(! (el instanceof HTMLElement) ) return {opacity: 1}
+      return {
+        opacity: 1 - el.getBoundingClientRect().top / (window.innerHeight / 2)
+      }
+    },
   },
 
   computed: {
