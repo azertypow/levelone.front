@@ -2,7 +2,6 @@
   <div class="v-log">
 
     <video  class="v-log__background" ref="videoBg" src="../assets/login/background.mp4"  muted autoplay ></video>
-<!--    <img    class="v-log__background" src="../assets/login/background.jpg" alt="login page background">-->
 
     <div
         class="v-log__container"
@@ -72,39 +71,6 @@ export default defineComponent({
 
   components: {
     FormLockedPage
-  },
-
-  mounted() {
-    this.$nextTick(() => {
-      const videoBgElement = this.$refs.videoBg
-      if (!(videoBgElement instanceof HTMLVideoElement) ) return
-
-      const videoInteraction = () => {
-        const {currentTime, duration, readyState, HAVE_METADATA} = videoBgElement
-
-        if( readyState > HAVE_METADATA &&
-            currentTime >= duration / 2
-        ) videoBgElement.pause()
-        else window.requestAnimationFrame(videoInteraction)
-
-      }
-      videoInteraction()
-
-      window.addEventListener("mousemove", e => {
-        const {duration, readyState, HAVE_METADATA, paused} = videoBgElement
-
-        if( ! (readyState > HAVE_METADATA) ||
-            ! paused
-        ) return
-
-        const clientXPercentValueByWindowWidth = e.clientX * 100 / window.innerWidth
-        const videoDurationWithClientXPosition = duration * clientXPercentValueByWindowWidth / 100
-
-        videoBgElement.currentTime = videoDurationWithClientXPosition
-
-      })
-
-    })
   },
 
   data() {
