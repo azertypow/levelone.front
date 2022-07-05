@@ -6,8 +6,9 @@
         class="v-section-talents__background"
     >
       <img alt="" class="v-section-talents__background__top lo-section-bg--top"           src="../assets/section_specification/background-specification__top.svg">
-      <img alt="" class="v-section-talents__background__bottom-left lo-section-bg--left"   src="../assets/section_specification/background-specification__left.svg">
-      <img alt="" class="v-section-talents__background__bottom-right lo-section-bg--right"  src="../assets/section_specification/background-specification__right.svg">
+<!--      <img alt="" class="v-section-talents__background__bottom-left lo-section-bg&#45;&#45;left"   src="../assets/section_specification/background-specification__left.svg">-->
+<!--      <img alt="" class="v-section-talents__background__bottom-right lo-section-bg&#45;&#45;right"  src="../assets/section_specification/background-specification__right.svg">-->
+      <img alt="" class="v-section-talents__background__bottom-background lo-section-bg--background"  src="../assets/section_specification/BUILDING_NC-21.png">
     </div>
 
     <subsection
