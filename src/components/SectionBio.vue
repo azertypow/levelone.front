@@ -1,5 +1,8 @@
 <template>
-  <section class="v-section-bio">
+  <section
+      class="v-section-bio"
+      ref="componentElement"
+  >
     <subsection
         :title="dataSlide.title"
     >
@@ -8,6 +11,7 @@
           class="v-section-bio__slides"
           :class="{half: Object.keys( slide.image ).length > 0}"
       >
+        <h2 class="v-section-bio__slides__subtitle" >subtitle</h2>
 
         <img
             class="v-section-bio__slides__img"
@@ -28,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from 'vue';
+import {defineComponent, PropType, VueElement} from 'vue';
 import Subsection from "@/components/Subsection.vue"
 import {useStore} from "vuex"
 import {key} from "@/store"
@@ -48,6 +52,28 @@ export default defineComponent({
   },
 
   computed: {
+  },
+
+  mounted() {
+    this.$nextTick (() => {
+
+      if(! (this.$refs.componentElement instanceof HTMLElement) ) return
+      const slides = this.$refs.componentElement.querySelectorAll('.v-section-bio__slides')
+
+      for(const slide of slides) {
+        const slideTitle          = slide.querySelector('.v-section-bio__slides__content')?.querySelector('h1')
+        const slideTitleContainer = slide.querySelector('.v-section-bio__slides__subtitle') as HTMLElement
+
+        if(slideTitle instanceof HTMLElement) {
+          slideTitleContainer.innerText = slideTitle.innerText
+          slideTitle.remove()
+        } else {
+          slideTitleContainer.remove()
+        }
+
+      }
+    })
+
   }
 
 });
@@ -88,5 +114,14 @@ export default defineComponent({
       }
     }
   }
+}
+.v-section-bio__slides__subtitle {
+  width: 100% !important;
+  text-align: center;
+  margin: 0;
+  color: var(--color--main);
+  font-family: MB_Picture_House_One_Light, sans-serif;
+  font-size:    calc( var(--font-size)    * 3 );
+  line-height:  calc( var(--line-height)  * 3 );
 }
 </style>

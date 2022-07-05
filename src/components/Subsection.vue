@@ -138,6 +138,7 @@ export default defineComponent({
 
 .v-subsection__content__title {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .title-variant {
