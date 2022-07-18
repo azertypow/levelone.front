@@ -35,7 +35,7 @@
         <button
             class="v-certification__clearData"
             @click="clearCertificationID"
-        >se deconnecter du certificat {{certificationData.ref.value}}</button>
+        >logout</button>
 
         <div class="lo-g-box">
           <div class="lo-g-gutter--half">
