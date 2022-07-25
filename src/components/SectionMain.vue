@@ -107,7 +107,21 @@ export default defineComponent({
 }
 
 .v-section-main__gallery.v-section-main__gallery--intro {
-  height: calc( 100vh - 8rem)
+  height: 100vw;
+
+  @media (min-aspect-ratio: 4/5) {
+    height: calc( 100vw - 4rem);
+  }
+  @media (min-aspect-ratio: 5/5) {
+    height: calc( 100vh - 5rem);
+  }
+
+  @media (min-aspect-ratio: 4/5) and (min-width: 950px) {
+    height: calc( 100vw - 8rem);
+  }
+  @media (min-aspect-ratio: 5/5) and (min-width: 950px) {
+    height: calc( 100vh - 8rem);
+  }
 }
 
 .v-section-main__txt {
