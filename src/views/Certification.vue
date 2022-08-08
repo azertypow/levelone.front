@@ -30,11 +30,6 @@
       <!--    specification-->
       <div class="v-certification__specification lo-font-is-small lo-g-gutter--half" >
 
-        <button
-            class="v-certification__clearData"
-            @click="clearCertificationID"
-        >logout</button>
-
         <div class="lo-g-box">
           <div class="lo-g-gutter--half">
             <div>
@@ -75,7 +70,12 @@
       <div class="v-certification__components lo-g-gutter--half" >
         <div class="lo-g-box">
           <div class="v-certification__components__header lo-remove-child-margin lo-g-gutter--half">
-            <div class="v-certification__components__header__line" ></div>
+            <div class="v-certification__components__header__line" >
+              <button
+                  class="v-certification__clearData"
+                  @click="clearCertificationID"
+              >logout</button>
+            </div>
             <h1>Composante</h1>
             <p>Vous trouverez un scann en haute définiton et un numéro de référence pour chaques pièces qui compose votre montre.</p>
           </div>
@@ -142,7 +142,6 @@
 import { defineComponent } from 'vue';
 import WatchComponent from "@/components/WatchComponent.vue";
 import {apiGet, IApiResponse_certification, IApiResponse_certificationLogin} from "@/global/api"
-import {API_URL} from "@/global/variables"
 import FormLockedPage, {IValidateData} from "@/components/FormLockedPage.vue"
 import {key} from "@/store"
 import {useStore} from "vuex"
@@ -212,7 +211,11 @@ export default defineComponent({
 .v-certification__clearData {
   position: absolute;
   top:    var(--gutter);
-  right:  var(--gutter);
+  right: 0;
+
+  @media all and (min-width: 1000px) {
+    right: calc( -100% - var(--gutter) );
+  }
 }
 
 // specifications
@@ -272,6 +275,7 @@ export default defineComponent({
   padding-bottom:    var(--section-padding-bottom);
   border-top: solid 1px var(--color--grey);
   width: 100%;
+  position: relative;
 }
 
 .v-certification__components__elements {
