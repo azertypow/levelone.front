@@ -2,10 +2,10 @@
   <div class="v-pre-order">
 
   <!--    header -->
-    <div  class="v-pre-order__intro lo-view__header">
+    <div  class="v-pre-order__intro lo-view__header" :style="{backgroundImage: `url('${preorderData.image?.url}')`,}">
       <div class="v-pre-order__intro__txt lo-view__header__txt lo-remove-child-margin lo-g-gutter--half">
-        <h1>Pré-commande</h1>
-        <p>Si vous désirez aquérir une montre Nicolas Commergnat</p>
+        <h1>{{preorderData.titleName}}</h1>
+        <p>{{preorderData.description}}</p>
       </div>
     </div>
 
@@ -69,6 +69,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import {IApiResponse_certificationLogin, IApiResponse_preorder} from "@/global/api"
+import {useStore} from "vuex"
+import {key} from "@/store"
 
 export default defineComponent({
   name: 'PreOrder',
@@ -87,6 +90,18 @@ export default defineComponent({
       status:  'show form' as 'show form' | 'sending data' | 'show response',
 
       responseMassage: null as string | null,
+
+      store: useStore(key),
+    }
+  },
+
+  computed: {
+    preorderData(): IApiResponse_preorder {
+      return {
+        titleName:      this.store.state.preorderData?.titleName      || '',
+        description:    this.store.state.preorderData?.description    || '',
+        image:          this.store.state.preorderData?.image          || null,
+      }
     }
   },
 

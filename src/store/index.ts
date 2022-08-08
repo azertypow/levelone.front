@@ -1,7 +1,13 @@
 import {createStore, Store} from 'vuex'
 import {InjectionKey} from "vue"
 import {IValidateData} from "@/components/FormLockedPage.vue"
-import {apiGet, IApiResonse_home, IApiResponse_certificationLogin, IApiResponse_locked} from "@/global/api"
+import {
+  apiGet,
+  IApiResonse_home,
+  IApiResponse_certificationLogin,
+  IApiResponse_locked,
+  IApiResponse_preorder
+} from "@/global/api"
 import router from "@/router"
 
 // define your typings for the store state
@@ -12,6 +18,7 @@ export interface AppState {
   menuOpen:          boolean
   showPageTransition: boolean
   certificationLoginData: IApiResponse_certificationLogin | null
+  preorderData: IApiResponse_preorder | null
 }
 
 export const key: InjectionKey<Store<AppState>> = Symbol()
@@ -25,6 +32,7 @@ export const store = createStore<AppState>({
     menuOpen: false,
     showPageTransition: false,
     certificationLoginData: null,
+    preorderData: null,
   },
   mutations: {
 
@@ -42,6 +50,10 @@ export const store = createStore<AppState>({
 
     async setCertificationLoginData(state){
       state.certificationLoginData = await apiGet('certification login') as IApiResponse_certificationLogin
+    },
+
+    async setPreorderData(state){
+      state.preorderData = await apiGet('preorder') as IApiResponse_preorder
     },
 
     async changeAppConnection (state, data: IValidateData) {

@@ -1,6 +1,6 @@
 import {API_URL} from "@/global/variables"
 
-export type apiLocation = "home" | "certification" | "certification login"
+export type apiLocation = "home" | "certification" | "certification login" | "preorder"
 
 export async function apiGet(location: apiLocation, connectionOption?: {password: string, id: string}):
   Promise<
@@ -8,6 +8,7 @@ export async function apiGet(location: apiLocation, connectionOption?: {password
     | IApiResponse_certification
     | IApiResponse_locked
     | IApiResponse_certificationLogin
+    | IApiResponse_preorder
   > {
 
   switch (location) {
@@ -17,6 +18,8 @@ export async function apiGet(location: apiLocation, connectionOption?: {password
       return await apiFetch(`/certification/${connectionOption ? `${connectionOption.id}?password=${connectionOption.password}&` : 'noIdPage'}`)  as IApiResponse_certification | IApiResponse_locked
     case "certification login" :
       return await apiFetch('/certification')  as IApiResponse_certificationLogin
+    case "preorder" :
+      return await apiFetch('/preorder')  as IApiResponse_preorder
   }
 }
 
@@ -60,6 +63,13 @@ export interface IApiResponse_certificationLogin {
     "url"  : string
   }[]
 }
+
+export interface IApiResponse_preorder {
+  titleName: string
+  description: string
+  image: IApiImageData | null
+}
+
 
 export interface IApiResponse_certification {
   ref: {

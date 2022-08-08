@@ -33,6 +33,7 @@ router.beforeEach((to, from, next) => {
 createApp(App).use(router).use(store, key).mount('#app')
 
 store.commit('setCertificationLoginData')
+store.commit('setPreorderData')
 store.commit("changeAppConnection")
 
 window.addEventListener("resize", () => {
