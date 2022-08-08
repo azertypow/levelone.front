@@ -103,7 +103,6 @@ export default defineComponent({
 
 .v-section-main__gallery {
   width: 100%;
-  height: calc( 100vh - 5rem);
 }
 
 .v-section-main__gallery.v-section-main__gallery--intro {

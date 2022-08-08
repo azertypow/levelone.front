@@ -2,23 +2,27 @@
   <div
       class="v-image-gallery"
   >
-    <img class="v-image-gallery__ui v-image-gallery__ui--left"
-         src="/img/NC-ui-arrow_2-left.svg"
-         alt="ui arrow left navigation"
-         @click="slideInGallery('toLeft')"
-    />
-    <img class="v-image-gallery__ui v-image-gallery__ui--right"
-         src="/img/NC-ui-arrow_2-right.svg"
-         alt="ui arrow right navigation"
-         @click="slideInGallery('toRight')"
-    />
-
     <div
-        class="v-image-gallery__imgs"
-        ref="imageGallery"
-        @scroll="onScrollInGallery"
+        class="v-image-gallery__box"
     >
-      <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
+      <img class="v-image-gallery__ui v-image-gallery__ui--left"
+           src="/img/NC-ui-arrow_2-left.svg"
+           alt="ui arrow left navigation"
+           @click="slideInGallery('toLeft')"
+      />
+      <img class="v-image-gallery__ui v-image-gallery__ui--right"
+           src="/img/NC-ui-arrow_2-right.svg"
+           alt="ui arrow right navigation"
+           @click="slideInGallery('toRight')"
+      />
+
+      <div
+          class="v-image-gallery__imgs"
+          ref="imageGallery"
+          @scroll="onScrollInGallery"
+      >
+        <img v-for="imageData of arrayOfImgData" :src="imageData.url" alt="">
+      </div>
     </div>
 
     <div
@@ -29,7 +33,6 @@
         <img  :alt="imageDataIndex" v-else                                 src="../assets/ui/counter--unactive.svg">
       </template>
     </div>
-
   </div>
 </template>
 
@@ -98,15 +101,19 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.v-image-gallery {
+.v-image-gallery__box {
   position: relative;
   width: 100%;
-  height: 100%;
+  padding-top: 68%;
   border-top: solid 1px var(--color--main);
   border-bottom: solid 1px var(--color--main);
   box-shadow: black 0 0 0 0;
   background: var(--color--grey);
 
+  @media all and (min-width: 1000px) {
+    padding-top: 0;
+    height: calc( 100vh - 5rem);
+  }
 }
 
 .v-image-gallery__imgs {
@@ -115,7 +122,9 @@ export default defineComponent({
   overflow: auto;
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   scroll-snap-type: x mandatory;
