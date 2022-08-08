@@ -38,8 +38,33 @@
             class="v-navigation-app__top__toggle-menu"
         >
           <div>
-            <template v-if="store.state.menuOpen" >fermer le menu</template>
-            <template v-else                      >menu</template>
+            <svg
+                v-if="store.state.menuOpen"
+                version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 213.8 213.8"
+                style="enable-background:new 0 0 213.8 213.8;"
+                xml:space="preserve"
+            >
+              <polygon
+                  points="213.8,23.8 190.1,0 106.9,83.2 23.8,0 0,23.8 83.2,106.9 0,190.1 23.8,213.8 106.9,130.7 190.1,213.8 213.8,190.1 130.7,106.9 "/>
+            </svg>
+            <svg
+                v-else
+                version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 268.8 212.8"
+                style="enable-background:new 0 0 268.8 212.8;"
+                xml:space="preserve"
+            >
+              <g>
+                <path d="M0,0v33.6h268.8V0H0z M0,89.6v33.6h268.8V89.6H0z M0,179.2v33.6h268.8v-33.6H0z"/>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
@@ -154,6 +179,11 @@ export default defineComponent({
 
   @media all and (min-width: 950px) {
     display: none;
+  }
+
+  svg {
+    display: block;
+    height: 1rem;
   }
 }
 
