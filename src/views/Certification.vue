@@ -297,6 +297,12 @@ export default defineComponent({
 
 <style lang="scss">
 .v-certification__specifications__details {
+  padding-top: var(--gutter);
+
+  @media all and (min-width: 1000px) {
+    padding-top: 0;
+  }
+
   p {
     font-weight: bold;
   }
