@@ -21,7 +21,7 @@
           @submit="formSubmit"
       >
         <div>
-          <label for="firstname" class="lo-form__label--is-required">Votre prénom <span>| your firstname</span></label>
+          <label for="firstname" class="lo-form__label--is-required">Votre prénom <span>| Your firstname</span></label>
           <input type="text"   id="firstname"  name="firstname"   v-model="firstname" required/>
         </div>
 
@@ -33,6 +33,11 @@
         <div>
           <label for="email" class="lo-form__label--is-required">Votre adresse mail <span>| Your mail adress</span></label>
           <input type="email"  id="email"       name="email"      v-model="email"     required/>
+        </div>
+
+        <div>
+          <label for="country">Votre pays <span>|Your country</span></label>
+          <input type="tel" id="country"          name="country"      v-model="country"/>
         </div>
 
         <div>
@@ -84,6 +89,7 @@ export default defineComponent({
       firstname: "",
       name: "",
       email: "",
+      country: "",
       phoneNumber: "",
       message: "",
 
@@ -117,6 +123,7 @@ export default defineComponent({
       contactUrl.searchParams.append('firstname', this.firstname)
       contactUrl.searchParams.append('name',      this.name)
       contactUrl.searchParams.append('email',     this.email)
+      contactUrl.searchParams.append('country',   this.country)
       contactUrl.searchParams.append('phone',     this.phoneNumber)
       contactUrl.searchParams.append('message',   this.message)
 
