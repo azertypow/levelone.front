@@ -77,6 +77,7 @@ input, textarea {
   background-color: var(--color--dark);
   border-bottom: solid 1px var(--color--main);
   background-size: cover;
+  background-position: center;
 
   &:before {
     content: "";
