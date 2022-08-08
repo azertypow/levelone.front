@@ -102,6 +102,7 @@ export default defineComponent({
 
     > *:first-child {
       width: 50%;
+      padding-bottom: var(--gutter);
     }
     > * {
       width: 100%;
@@ -111,6 +112,7 @@ export default defineComponent({
       > *:first-child,
       > * {
         width: 50%;
+        padding-bottom: 0;
       }
     }
   }
