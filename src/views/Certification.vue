@@ -212,10 +212,6 @@ export default defineComponent({
   position: absolute;
   top:    var(--gutter);
   right: 0;
-
-  @media all and (min-width: 1000px) {
-    right: calc( -100% - var(--gutter) );
-  }
 }
 
 // specifications
@@ -276,6 +272,10 @@ export default defineComponent({
   border-top: solid 1px var(--color--grey);
   width: 100%;
   position: relative;
+
+  @media all and (min-width: 1000px) {
+    width: calc(200% + var(--gutter) );
+  }
 }
 
 .v-certification__components__elements {
