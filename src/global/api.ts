@@ -88,6 +88,9 @@ export interface IApiResponse_certification {
   watchDial: {
     [key: string]: IApiImageData
   },
+  watchNeedle: {
+    [key: string]: IApiImageData
+  },
   movement: {
     [key: string]: IApiImageData
   }

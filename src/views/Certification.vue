@@ -108,11 +108,24 @@
 
         <div class="v-certification__components__elements lo-g-box lo-g-gutter--half">
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
-            <h3>Cadrant et Aiguilles</h3>
+            <h3>Cadrant</h3>
           </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
                 v-for="component of certificationData?.watchDial"
+                :data="component"
+            ></watch-component>
+          </div>
+        </div>
+
+
+        <div class="v-certification__components__elements lo-g-box lo-g-gutter--half">
+          <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
+            <h3>Aiguilles</h3>
+          </div>
+          <div class="v-certification__components__elements__list lo-g-box">
+            <watch-component
+                v-for="component of certificationData?.watchNeedle"
                 :data="component"
             ></watch-component>
           </div>
