@@ -1,7 +1,7 @@
 import {createStore, Store} from 'vuex'
 import {InjectionKey} from "vue"
 import {IValidateData} from "@/components/FormLockedPage.vue"
-import {apiGet, IApiResonse_home, IApiResponse_locked} from "@/global/api"
+import {apiGet, IApiResonse_home, IApiResponse_certificationLogin, IApiResponse_locked} from "@/global/api"
 import router from "@/router"
 
 // define your typings for the store state
@@ -11,6 +11,7 @@ export interface AppState {
   homeData:          IApiResonse_home | IApiResponse_locked | null
   menuOpen:          boolean
   showPageTransition: boolean
+  certificationLoginData: IApiResponse_certificationLogin | null
 }
 
 export const key: InjectionKey<Store<AppState>> = Symbol()
@@ -23,6 +24,7 @@ export const store = createStore<AppState>({
     homeData: null,
     menuOpen: false,
     showPageTransition: false,
+    certificationLoginData: null,
   },
   mutations: {
 
@@ -36,6 +38,10 @@ export const store = createStore<AppState>({
       window.setTimeout(() => {
         state.showPageTransition = false
       }, 3000)
+    },
+
+    async setCertificationLoginData(state){
+      state.certificationLoginData = await apiGet('certification login') as IApiResponse_certificationLogin
     },
 
     async changeAppConnection (state, data: IValidateData) {

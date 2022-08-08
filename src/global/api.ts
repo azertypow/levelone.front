@@ -1,12 +1,13 @@
 import {API_URL} from "@/global/variables"
 
-export type apiLocation = "home" | "certification"
+export type apiLocation = "home" | "certification" | "certification login"
 
 export async function apiGet(location: apiLocation, connectionOption?: {password: string, id: string}):
   Promise<
     IApiResonse_home
     | IApiResponse_certification
     | IApiResponse_locked
+    | IApiResponse_certificationLogin
   > {
 
   switch (location) {
@@ -14,12 +15,12 @@ export async function apiGet(location: apiLocation, connectionOption?: {password
       return await apiFetch(              `/${connectionOption ? `${connectionOption.id}?password=${connectionOption.password}&` : 'noIdPage'}`)  as IApiResonse_home | IApiResponse_locked
     case "certification":
       return await apiFetch(`/certification/${connectionOption ? `${connectionOption.id}?password=${connectionOption.password}&` : 'noIdPage'}`)  as IApiResponse_certification | IApiResponse_locked
+    case "certification login" :
+      return await apiFetch('/certification')  as IApiResponse_certificationLogin
   }
 }
 
 export async function apiFetch(query: string): Promise<Object| "is locked"> {
-
-  console.log(query)
 
   const response = await fetch(
     API_URL + query,
@@ -50,6 +51,15 @@ export interface IApiResonse_home__section {
   slides:   IApiSlide[] | null
 }
 
+export interface IApiResponse_certificationLogin {
+  titleName: string
+  description: string
+  image: IApiImageData | null
+  certifications: {
+    "title": string
+    "url"  : string
+  }[]
+}
 
 export interface IApiResponse_certification {
   ref: {

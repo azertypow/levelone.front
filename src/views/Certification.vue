@@ -2,12 +2,10 @@
   <div class="v-certification">
 
 <!--    header -->
-    <div  class="v-certification__intro lo-view__header">
+    <div  class="v-certification__intro lo-view__header" :style="{backgroundImage: `url('${certificationLoginData.image?.url}')`,}">
       <div class="v-certification__intro__txt lo-view__header__txt lo-remove-child-margin lo-g-gutter--half">
-        <h1>Bienvenue</h1>
-        <p>Retrouvez dans cet espace sur-mesure les informations personnalisées, relatives à votre montre Nicolas&nbsp;Commergnat.</p>
-<!--        <img class="lo-view__header__ui&#45;&#45;left" src="img/ornement-left.svg" alt="">-->
-<!--        <img class="lo-view__header__ui&#45;&#45;right" src="img/ornement-right.svg" alt="">-->
+        <h1>{{certificationLoginData.titleName}}</h1>
+        <p>{{certificationLoginData.description}}</p>
       </div>
     </div>
 
@@ -143,7 +141,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import WatchComponent from "@/components/WatchComponent.vue";
-import {apiGet, IApiResponse_certification} from "@/global/api"
+import {apiGet, IApiResponse_certification, IApiResponse_certificationLogin} from "@/global/api"
 import {API_URL} from "@/global/variables"
 import FormLockedPage, {IValidateData} from "@/components/FormLockedPage.vue"
 import {key} from "@/store"
@@ -164,6 +162,17 @@ export default defineComponent({
     return {
       certificationData: undefined as undefined | IApiResponse_certification | {error: string},
       store: useStore(key),
+    }
+  },
+
+  computed: {
+    certificationLoginData(): IApiResponse_certificationLogin {
+      return {
+        titleName:      this.store.state.certificationLoginData?.titleName      || '',
+        description:    this.store.state.certificationLoginData?.description    || '',
+        image:          this.store.state.certificationLoginData?.image          || null,
+        certifications: this.store.state.certificationLoginData?.certifications || [],
+      }
     }
   },
 
