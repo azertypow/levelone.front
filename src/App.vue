@@ -86,5 +86,9 @@ export default defineComponent({
   width: 100%;
   top: 0;
   z-index: 1000000;
+
+  .menu-open & {
+    height: 100%;
+  }
 }
 </style>

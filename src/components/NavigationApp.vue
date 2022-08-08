@@ -147,6 +147,7 @@ export default defineComponent({
 .v-navigation-app {
   position: relative;
   width: 100%;
+  height: 100%;
   background-color: var(--color--light);
 }
 
@@ -225,7 +226,7 @@ export default defineComponent({
 
   .menu-open & {
     display: flex;
-    height: calc(100vh - var(--navigation-height));
+    height: calc(100% - var(--navigation-height));
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
