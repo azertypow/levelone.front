@@ -3,7 +3,7 @@
 
   <!--    header -->
     <div  class="v-pre-order__intro lo-view__header">
-      <div class="v-pre-order__intro__txt lo-view__header__txt lo-remove-child-margin">
+      <div class="v-pre-order__intro__txt lo-view__header__txt lo-remove-child-margin lo-g-gutter--half">
         <h1>Pré-commande</h1>
         <p>Si vous désirez aquérir une montre Nicolas Commergnat</p>
       </div>

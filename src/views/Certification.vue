@@ -3,7 +3,7 @@
 
 <!--    header -->
     <div  class="v-certification__intro lo-view__header">
-      <div class="v-certification__intro__txt lo-view__header__txt lo-remove-child-margin">
+      <div class="v-certification__intro__txt lo-view__header__txt lo-remove-child-margin lo-g-gutter--half">
         <h1>Bienvenue</h1>
         <p>Retrouvez dans cet espace sur-mesure les informations personnalisées, relatives à votre montre Nicolas&nbsp;Commergnat.</p>
 <!--        <img class="lo-view__header__ui&#45;&#45;left" src="img/ornement-left.svg" alt="">-->
