@@ -79,21 +79,31 @@ export interface IApiResponse_certification {
   specification: {
     value: string
   },
+
   watch: {
     [key: string]: IApiImageData
-  },
+  }
+  watchDescription: string
+
   watchCase: {
     [key: string]: IApiImageData
-  },
+  }
+  watchCaseDescription: string
+
   watchDial: {
     [key: string]: IApiImageData
-  },
+  }
+  watchDialDescription: string
+
   watchNeedle: {
     [key: string]: IApiImageData
-  },
+  }
+  watchNeedleDescription: string
+
   movement: {
     [key: string]: IApiImageData
   }
+  movementDescription: string
 }
 
 export interface IApiImageData {

@@ -85,6 +85,9 @@
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
             <h3>Montre</h3>
           </div>
+          <div class="v-certification__components__elements__description lo-remove-child-margin lo-g-gutter--half">
+            <p>{{certificationData.watchDescription}}</p>
+          </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
                 v-for="component of certificationData?.watch"
@@ -96,6 +99,9 @@
         <div class="v-certification__components__elements lo-g-box lo-g-gutter--half">
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
             <h3>Boitier</h3>
+          </div>
+          <div class="v-certification__components__elements__description lo-remove-child-margin lo-g-gutter--half">
+            <p>{{certificationData.watchCaseDescription}}</p>
           </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
@@ -110,6 +116,9 @@
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
             <h3>Cadrant</h3>
           </div>
+          <div class="v-certification__components__elements__description lo-remove-child-margin lo-g-gutter--half">
+            <p>{{certificationData.watchDialDescription}}</p>
+          </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
                 v-for="component of certificationData?.watchDial"
@@ -123,6 +132,9 @@
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
             <h3>Aiguilles</h3>
           </div>
+          <div class="v-certification__components__elements__description lo-remove-child-margin lo-g-gutter--half">
+            <p>{{certificationData.watchNeedleDescription}}</p>
+          </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
                 v-for="component of certificationData?.watchNeedle"
@@ -135,6 +147,9 @@
         <div class="v-certification__components__elements lo-g-box lo-g-gutter--half">
           <div class="v-certification__components__elements__title lo-remove-child-margin lo-g-gutter--half">
             <h3>Mouvement</h3>
+          </div>
+          <div class="v-certification__components__elements__description lo-remove-child-margin lo-g-gutter--half">
+            <p>{{certificationData.movementDescription}}</p>
           </div>
           <div class="v-certification__components__elements__list lo-g-box">
             <watch-component
@@ -298,7 +313,17 @@ export default defineComponent({
 .v-certification__components__elements__title {
   width: 100%;
   border-left: solid 1px var(--color--grey);
-  padding-bottom: calc( var(--line-height) * 4 );
+  padding-bottom: calc( var(--line-height) * 1 );
+}
+
+.v-certification__components__elements__description {
+  width: 100%;
+  border-left: solid 1px var(--color--grey);
+  padding-bottom: calc( var(--line-height) * 3 );
+
+  > p {
+    max-width: 30em;
+  }
 }
 
 .v-certification__components__elements__list {
