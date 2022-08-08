@@ -69,10 +69,12 @@ export const store = createStore<AppState>({
 
     toggleMenu(state) {
       state.menuOpen = !state.menuOpen
+      state.menuOpen ? document.body.classList.add('menu-open') : document.body.classList.remove('menu-open')
     },
 
     closeMenu(state) {
       state.menuOpen = false
+      document.body.classList.remove('menu-open')
     },
 
   },

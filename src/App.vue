@@ -15,9 +15,6 @@
   <div
       v-else
       class="v-app"
-      :class="{
-        'menu-open': store.state.menuOpen,
-      }"
   >
 
     <div
