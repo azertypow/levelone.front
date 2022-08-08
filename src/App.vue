@@ -6,6 +6,12 @@
     ></page-transition>
   </transition>
 
+  <vue-easy-lightbox
+      :visible="easyLightBoxImage !== null"
+      :imgs="easyLightBoxImage"
+      @hide="store.commit('removeEasyLightBoxImage')"
+  ></vue-easy-lightbox>
+
   <div
       v-if="store.getters.appLockStatus === 'waiting'"
       class="v-app v-app__loader"
@@ -39,25 +45,31 @@ import AppFooter from "@/components/AppFooter.vue";
 import {useStore} from "vuex"
 import {key} from "@/store"
 import PageTransition from "@/components/PageTransition.vue"
+import VueEasyLightbox from 'vue-easy-lightbox'
 
 export default defineComponent({
   name: 'App',
 
   data() {
     return {
-      store: useStore(key)
+      store: useStore(key),
     }
   },
 
   components: {
     PageTransition,
     AppFooter,
-    NavigationApp
-  },
+    NavigationApp,
+    VueEasyLightbox,
+},
 
   computed: {
     isLogView(): boolean {
       return this.$route.name === 'Log'
+    },
+
+    easyLightBoxImage(): string | null {
+      return this.store.state.easyLightBoxImage
     }
   }
 

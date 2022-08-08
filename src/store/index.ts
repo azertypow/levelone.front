@@ -19,6 +19,7 @@ export interface AppState {
   showPageTransition: boolean
   certificationLoginData: IApiResponse_certificationLogin | null
   preorderData: IApiResponse_preorder | null
+  easyLightBoxImage: string | null
 }
 
 export const key: InjectionKey<Store<AppState>> = Symbol()
@@ -33,6 +34,7 @@ export const store = createStore<AppState>({
     showPageTransition: false,
     certificationLoginData: null,
     preorderData: null,
+    easyLightBoxImage: null,
   },
   mutations: {
 
@@ -77,6 +79,13 @@ export const store = createStore<AppState>({
       document.body.classList.remove('menu-open')
     },
 
+    setImageToEasyLightBoxImage(state, data: string) {
+      state.easyLightBoxImage = data
+    },
+
+    removeEasyLightBoxImage(state) {
+      state.easyLightBoxImage = null
+    }
   },
   actions: {
   },

@@ -69,3 +69,8 @@ vue transition
 .transition-leave-to {
   opacity: 0;
 }
+
+.vel-modal {
+  z-index: 100000000000;
+  background: rgba(0,0,0,.9);
+}

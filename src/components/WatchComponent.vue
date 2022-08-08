@@ -1,5 +1,5 @@
 <template>
-  <div class="watch-component lo-g-gutter--half">
+  <div class="watch-component lo-g-gutter--half" @click="openImage">
     <div class="watch-component__header lo-remove-child-margin">
       <div>NC-Level-One</div>
       <div class="watch-component__name">{{name}}</div>
@@ -17,11 +17,19 @@
 <script lang="ts">
 import {defineComponent, PropType} from 'vue';
 import {IApiImageData} from "@/global/api"
+import {useStore} from "vuex"
+import {key} from "@/store"
 
 export default defineComponent({
   name: 'WatchComponent',
 
   components: {},
+
+  data() {
+    return {
+      store: useStore(key)
+    }
+  },
 
   props: {
     data: {
@@ -33,6 +41,12 @@ export default defineComponent({
   computed: {
     name(): string {
       return this.data.safeName.replace( 'nc-level-one-' , '')
+    }
+  },
+
+  methods: {
+    openImage() {
+      this.store.commit('setImageToEasyLightBoxImage', this.data.url)
     }
   }
 });
