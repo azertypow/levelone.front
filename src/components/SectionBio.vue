@@ -124,6 +124,6 @@ export default defineComponent({
   color: var(--color--main);
   font-family: MB_Picture_House_One_Light, sans-serif;
   font-size:    calc( var(--font-size)    * 3 );
-  line-height:  calc( var(--line-height)  * 3 );
+  line-height:  calc( var(--line-height)  * 2 );
 }
 </style>
