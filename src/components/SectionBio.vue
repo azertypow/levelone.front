@@ -121,6 +121,7 @@ export default defineComponent({
   width: 100% !important;
   text-align: center;
   margin: 0;
+  margin-bottom: 1rem;
   color: var(--color--main);
   font-family: MB_Picture_House_One_Light, sans-serif;
   font-size:    calc( var(--font-size)    * 3 );
