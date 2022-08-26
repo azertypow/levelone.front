@@ -10,6 +10,7 @@
       :visible="easyLightBoxImage !== null"
       :imgs="easyLightBoxImage"
       @hide="store.commit('removeEasyLightBoxImage')"
+      @contextmenu="preventContextMenu($event)"
   ></vue-easy-lightbox>
 
   <div
@@ -61,7 +62,13 @@ export default defineComponent({
     AppFooter,
     NavigationApp,
     VueEasyLightbox,
-},
+  },
+
+  methods: {
+    preventContextMenu(e: MouseEvent) {
+      e.preventDefault()
+    }
+  },
 
   computed: {
     isLogView(): boolean {
