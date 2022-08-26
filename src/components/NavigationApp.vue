@@ -75,8 +75,8 @@
         class="v-navigation-app__bottom lo-g-box lo-g-box--centred lo-g-row"
     >
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__main'}">Level One</router-link>
-      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__bio'}">Biographie</router-link>
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__specification'}">Spécifications</router-link>
+      <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__bio'}">Biographie</router-link>
       <router-link class="lo-g-gutter--half" :to="{path: '/', hash: '#v-home__talents'}">Talents</router-link>
       <router-link class="lo-g-gutter--half" to="/pre-order">Pré-commande</router-link>
       <router-link class="lo-g-gutter--half" to="/certification">Certificats</router-link>
