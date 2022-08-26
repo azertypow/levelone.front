@@ -235,6 +235,14 @@ export default defineComponent({
   min-height: calc( 100vh - var(--navigation-height) - var(--footer-height) );
 }
 
+.v-certification__intro__txt {
+  h1 {
+    margin: 0;
+    color: white;
+    font-weight: 900;
+  }
+}
+
 ///// intro and form to unlock page
 .v-certification__clearData {
   position: absolute;
