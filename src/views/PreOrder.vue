@@ -162,10 +162,18 @@ export default defineComponent({
 }
 
 .v-pre-order__intro__txt {
+  text-shadow: 0 0 20px black;
+
   h1 {
     margin: 0;
     color: white;
     font-weight: 900;
+  }
+
+  p {
+    font-weight: 900;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
