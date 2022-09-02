@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://commergnat.com/precache-manifest.103b5cfb9c6ef3eb911a0f19ed8c25c2.js"
+  "https://commergnat.com/precache-manifest.f1fd948bf4a63aa7bfa1e8d755b15a29.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "levelone.front"});
