@@ -76,7 +76,10 @@ export default defineComponent({
       hour.style.transition   = `transform ${timeAnimation}ms cubic-bezier(1, 0, .75, 1)`
 
       const date = new Date()
-      const localTimeZoneGetTime = date.getTime() - date.getTimezoneOffset() * 60
+      const localTimeZoneGetTime =
+          date.getSeconds()   * 1_000
+          + date.getMinutes() * 1_000 * 60
+          + date.getHours()   * 1_000 * 60 * 60
 
 
       this.setElementRotation({
@@ -93,7 +96,7 @@ export default defineComponent({
 
       this.setElementRotation({
         element: hour,
-        value:                  ( (localTimeZoneGetTime + timeAnimation ) / 1_000 / 60 / 60 % 24 ) + 1,
+        value:                  ( (localTimeZoneGetTime + timeAnimation ) / 1_000 / 60 / 60 % 24 ),
         incrementalAngleValue:  360 / 12,
       })
 
@@ -114,25 +117,28 @@ export default defineComponent({
     }) {
 
       const date = new Date()
-      const localTimeZoneGetTime = date.getTime() - date.getTimezoneOffset() * 60
+      const localTimeZoneGetTime =
+            date.getSeconds() * 1_000
+          + date.getMinutes() * 1_000 * 60
+          + date.getHours()   * 1_000 * 60 * 60
 
       // if(this.frameCounter % (60 / 5) === 0) {
         this.setElementRotation({
           element: args.second,
-          value:                  localTimeZoneGetTime,
+          value:                  date.getTime(),
           incrementalAngleValue:  360 / 60 / 1_000,
         })
       // }
 
       this.setElementRotation({
         element: args.minute,
-        value:                  localTimeZoneGetTime,
+        value:                  date.getTime(),
         incrementalAngleValue:  360 / 60 / 1_000 / 60,
       })
 
       this.setElementRotation({
         element: args.hour,
-        value:                  (localTimeZoneGetTime+ (1_000 * 60 * 60)) + 1,
+        value:                  (localTimeZoneGetTime+ (1_000 * 60 * 60)),
         incrementalAngleValue:  360 / 60 / 1_000 / 60 / 12,
       })
 
