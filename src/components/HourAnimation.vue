@@ -138,7 +138,7 @@ export default defineComponent({
 
       this.setElementRotation({
         element: args.hour,
-        value:                  (localTimeZoneGetTime+ (1_000 * 60 * 60)),
+        value:                  (localTimeZoneGetTime) + 1,
         incrementalAngleValue:  360 / 60 / 1_000 / 60 / 12,
       })
 
