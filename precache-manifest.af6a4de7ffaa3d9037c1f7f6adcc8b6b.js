@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cc47a23dda3c443728d2",
+    "revision": "a72c9dc701e1c808072e",
     "url": "https://commergnat.com/css/app.d966d3a7.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/css/chunk-7cc1f6ba.9900d4ab.css"
   },
   {
-    "revision": "97c65516276c8b67a2ac",
-    "url": "https://commergnat.com/css/chunk-f2d730f2.688b250d.css"
+    "revision": "16d1c44de4f089ea87f5",
+    "url": "https://commergnat.com/css/chunk-8b48af1a.5263771b.css"
   },
   {
     "revision": "8f9b36d09c87e95d0d8cc27ec74aca49",
@@ -156,12 +156,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "f779ee9478fddb170fa9d4ba389e31e9",
+    "revision": "4fee1e04078528e464fba04c9a39b191",
     "url": "https://commergnat.com/index.html"
   },
   {
-    "revision": "cc47a23dda3c443728d2",
-    "url": "https://commergnat.com/js/app.3ccb7fc1.js"
+    "revision": "a72c9dc701e1c808072e",
+    "url": "https://commergnat.com/js/app.f57ff20a.js"
   },
   {
     "revision": "4cb57caa1e4096b94477",
@@ -176,8 +176,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/js/chunk-7cc1f6ba.6791b0f1.js"
   },
   {
-    "revision": "97c65516276c8b67a2ac",
-    "url": "https://commergnat.com/js/chunk-f2d730f2.380aecbd.js"
+    "revision": "16d1c44de4f089ea87f5",
+    "url": "https://commergnat.com/js/chunk-8b48af1a.59256479.js"
   },
   {
     "revision": "f4c277eb8e14d1a82318",
