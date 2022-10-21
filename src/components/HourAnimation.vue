@@ -76,22 +76,24 @@ export default defineComponent({
       hour.style.transition   = `transform ${timeAnimation}ms cubic-bezier(1, 0, .75, 1)`
 
       const date = new Date()
+      const localTimeZoneGetTime = date.getTime() - date.getTimezoneOffset() * 60
+
 
       this.setElementRotation({
         element: second,
-        value:                  (date.getTime() + timeAnimation )/ 1_000 % 60,
+        value:                  (localTimeZoneGetTime + timeAnimation )/ 1_000 % 60,
         incrementalAngleValue:  360 / 60,
       })
 
       this.setElementRotation({
         element: minute,
-        value:                  (date.getTime() + timeAnimation ) / 1_000 / 60 % 60,
+        value:                  (localTimeZoneGetTime + timeAnimation ) / 1_000 / 60 % 60,
         incrementalAngleValue:  360 / 60,
       })
 
       this.setElementRotation({
         element: hour,
-        value:                  ( (date.getTime() + timeAnimation ) / 1_000 / 60 / 60 % 24 ) + 1,
+        value:                  ( (localTimeZoneGetTime + timeAnimation ) / 1_000 / 60 / 60 % 24 ) + 1,
         incrementalAngleValue:  360 / 12,
       })
 
@@ -112,24 +114,25 @@ export default defineComponent({
     }) {
 
       const date = new Date()
+      const localTimeZoneGetTime = date.getTime() - date.getTimezoneOffset() * 60
 
       // if(this.frameCounter % (60 / 5) === 0) {
         this.setElementRotation({
           element: args.second,
-          value:                  date.getTime(),
+          value:                  localTimeZoneGetTime,
           incrementalAngleValue:  360 / 60 / 1_000,
         })
       // }
 
       this.setElementRotation({
         element: args.minute,
-        value:                  date.getTime(),
+        value:                  localTimeZoneGetTime,
         incrementalAngleValue:  360 / 60 / 1_000 / 60,
       })
 
       this.setElementRotation({
         element: args.hour,
-        value:                  date.getTime() + (1_000 * 60 * 60),
+        value:                  (localTimeZoneGetTime+ (1_000 * 60 * 60)) + 1,
         incrementalAngleValue:  360 / 60 / 1_000 / 60 / 12,
       })
 
