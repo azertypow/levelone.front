@@ -156,7 +156,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://commergnat.com/img/watchBg-copie.jpg"
   },
   {
-    "revision": "3a42767c9a97354d726b48ec06464eee",
+    "revision": "b9f09bfe91e93a20dbd9f72f197f7f00",
     "url": "https://commergnat.com/index.html"
   },
   {
